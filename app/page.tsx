@@ -4,6 +4,7 @@ import { FirstVisitInvite } from '@/components/first-visit-invite';
 import { ReviewMarquee } from '@/components/review-marquee';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { ShowtimeIntro } from '@/components/showtime-intro';
 
 const orderLinks = [
   ['Pickup', 'https://collegeboy-cheesesteaks.square.site/'],
@@ -13,6 +14,7 @@ const orderLinks = [
 
 export default function Home() {
   return <>
+    <ShowtimeIntro />
     <a className="skip-link" href="#main">Skip to content</a><SiteHeader />
     <main id="main">
       <section className="hero"><div className="hero-copy"><span className="eyebrow">PHILLY BORN · LOS ANGELES FED</span><h1>Not a sandwich.<br /><em>A whole degree.</em></h1><p>Real Philly cheesesteaks from real Philadelphians. Find the red truck, check the current menu, or order the jawn you came for.</p><div className="hero-actions"><a className="button button-cream" href="#find">Find the truck</a><a className="button button-outline" href="https://collegeboy-cheesesteaks.square.site/" target="_blank" rel="noreferrer">Order pickup ↗</a></div></div><div className="hero-photo"><Image src="/media/spicy-chicken-cheesesteak.png" alt="A spicy chicken cheesesteak hoagie cut open on a food preparation counter" fill priority sizes="(max-width: 760px) 100vw, 52vw" /></div><div className="hero-ticket"><strong>SPICY CHICKEN</strong><span>Fresh off the line</span></div></section>
@@ -21,7 +23,16 @@ export default function Home() {
       <section className="degree-section" id="menu"><div className="section-intro light"><span className="eyebrow">THE CURRICULUM</span><h2>Earn your degree.</h2><p>Client-approved menu details and prices stay at checkout. This page keeps the path simple.</p></div><div className="degree-path"><article><span>01 · START HERE</span><h3>Cheesesteaks</h3><p>See current proteins, cheeses, toppings, and customization at checkout.</p></article><article><span>02 · SWITCH IT UP</span><h3>Chicken & veggie</h3><p>Availability and preparation details are confirmed on the live ordering menu.</p></article><article><span>03 · EXTRA CREDIT</span><h3>Fries & drinks</h3><p>Round out the order with whatever is available today.</p></article><article className="degree-final"><span>04 · TOP OF THE CLASS</span><h3>Your order</h3><p>No guessed prices. No stale menu. Build it with the provider handling today’s service.</p></article></div><div className="order-grid">{orderLinks.map(([label, href]) => <a key={label} href={href} target="_blank" rel="noreferrer"><span>{label}</span><strong>Order now ↗</strong></a>)}</div></section>
       <ReviewMarquee />
       <section className="catering" id="catering"><div><span className="eyebrow">BRING THE TRUCK</span><h2>Big event.<br />Real Philly.</h2><p>Office lunches, celebrations, and community events. Send the date, location, and guest count by email.</p><a className="button button-cream" href="mailto:catering@collegeboysteaks.com?subject=College%20Boy%20catering%20inquiry">Ask about catering ↗</a><small>Inbox monitoring, availability, menu, and pricing require client confirmation before launch.</small></div><div className="catering-mark" aria-hidden="true">CB</div></section>
-      <section className="story-safe section"><span className="eyebrow">ROOTED IN PHILLY</span><h2>The full story deserves approval.</h2><p>Founder names, family history, memorial language, and family photographs remain outside this public build until the family and client approve the final treatment.</p><Link href="/subscribe" className="text-link">Join for College Boy updates →</Link></section>
+      <section className="about" id="about" aria-labelledby="about-title">
+        <div className="about-inspiration">
+          <Image src="/media/college-boy-inspiration-silhouette.png" alt="A stylized graduation portrait representing the inspiration behind College Boy Cheesesteaks" fill sizes="100vw" />
+          <div className="about-inspiration-copy"><span className="eyebrow">THE INSPIRATION</span><h2 id="about-title">Every degree starts with someone who showed the way.</h2><p>This portrait sets the tone for the family inspiration at the heart of College Boy. The complete names and personal story will be added only with the family’s approved wording.</p></div>
+        </div>
+        <div className="about-family">
+          <div className="about-family-photo"><Image src="/media/college-boy-family-owners-enhanced.png" alt="The family owners of College Boy Cheesesteaks standing together in front of the red food truck" fill sizes="(max-width: 900px) 100vw, 58vw" /></div>
+          <div className="about-family-copy"><span className="eyebrow">FAMILY OWNED · PHILLY ROOTED</span><h3>The family behind the red truck.</h3><p>College Boy is carried forward by family—serving Los Angeles with the pride, care, and unmistakable point of view that built the business.</p><p>This demo keeps the story focused and respectful while the family confirms the final names, history, and tribute language.</p><Link href="/subscribe" className="text-link">Follow the next chapter →</Link></div>
+        </div>
+      </section>
     </main><SiteFooter /><FirstVisitInvite />
   </>;
 }

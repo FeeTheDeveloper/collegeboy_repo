@@ -11,8 +11,10 @@ The food photograph supplied directly for this build is committed below. Family 
 | `lifestyle.webp` | Story | Wix-origin image | Pending | Pending |
 | `hoagie.webp` | Unassigned | Wix-origin image | Pending | Pending |
 | `spicy_chicken_cheesteak_.png` | Home hero | User-supplied Dropbox upload | Supplied for this site build | King Fee/client confirmation before production |
-| `collegeboy_headshot.png` | Possible family story | User-supplied Dropbox upload | Family approval not documented | Pending |
-| `family_shot.png` | Possible family story | User-supplied Dropbox upload | Family approval not documented | Pending |
+| `collegeboy_headshot.png` | About-section inspiration portrait | User-supplied Dropbox upload | Authorized by user for local demo transformation | Final family wording/production approval pending |
+| `family_shot.png` | About-section family owners portrait | User-supplied Dropbox upload | Authorized by user for local demo enhancement | Final production approval pending |
+| `college-boy-inspiration-silhouette.png` | About-section background | AI-edited from supplied headshot | Local demo approved; identity preserved | Final production approval pending |
+| `college-boy-family-owners-enhanced.png` | About-section owners image | AI-edited from supplied family photo | Local demo approved; identities preserved | Final production approval pending |
 | `College Boy Media.MP4` | Possible brand video | User-supplied Dropbox upload, 135 MB | Editorial/rights review pending | Pending |
 | `promo_.mov` | Possible brand video | User-supplied Dropbox upload, 323 MB | Editorial/rights review pending | Pending |
 

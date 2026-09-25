@@ -36,7 +36,7 @@ components:
 
 ## Overview
 
-This is a hybrid brand and lightweight customer-account experience. It should feel like standing beside the red truck with a printed order ticket in hand: bold, direct, useful, and unmistakably College Boy. The memorable signature is the four-stage “Earn Your Degree” menu path. Restraint wins everywhere else.
+This is a hybrid brand and lightweight customer-account experience. It should feel like standing beside the red truck with a printed order ticket in hand: bold, direct, useful, and unmistakably College Boy. The memorable signature is the four-stage “Earn Your Degree” menu path. The About section extends that idea with a dignified graduation portrait and a documentary family-truck photograph. Restraint wins everywhere else.
 
 Avoid generic startup gradients, rounded SaaS cards, luxury-steakhouse styling, fabricated social proof, and decorative academic motifs that do not help customers order.
 

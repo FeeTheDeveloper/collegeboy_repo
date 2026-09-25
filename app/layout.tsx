@@ -4,6 +4,7 @@ import { Anton, Barlow_Condensed, Inter } from 'next/font/google';
 import { clerkConfigured } from '@/lib/config';
 import { siteUrl } from '@/lib/site-config';
 import './globals.css';
+import './about.css';
 
 const display = Anton({ subsets: ['latin'], weight: '400', variable: '--font-display' });
 const utility = Barlow_Condensed({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-utility' });

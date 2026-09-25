@@ -13,6 +13,21 @@ npm start
 
 Copy `.env.example` to `.env.local` only after dedicated College Boy Clerk and Supabase resources exist. Never reuse another client or Fee The Developer service-role credential.
 
+## Demo domain and routes
+
+`https://cbkforever.com` is the intended demo origin and the fallback canonical URL. Set `NEXT_PUBLIC_SITE_URL` to the exact approved origin in each environment. Empty, malformed, or non-HTTP(S) values fall back safely to the demo origin.
+
+You retain control of the external setup:
+
+1. Create the `cbkforever.com` domain and choose the hosting project.
+2. Point DNS only after the review deployment is healthy and its rollback target is recorded.
+3. Add `https://cbkforever.com/sign-in` and `https://cbkforever.com/sign-up` to the dedicated College Boy Clerk application.
+4. Add `cbkforever.com` and `www.cbkforever.com` as authorized Clerk origins only if both hostnames are routed intentionally.
+5. Configure the dedicated College Boy Supabase project and apply the tracked migration.
+6. Keep preview and demo pages `noindex`; production search indexing remains a separate approval.
+
+Legacy route redirects are implemented as `/projects-2` → `/#menu` and `/contact-8` → `/#catering`. Authentication routes are `/sign-in`, `/sign-up`, and `/account`; the mailing-list route is `/subscribe` with its server endpoint at `/api/subscribe`.
+
 ## Schedule ownership
 
 The earlier static schedule source is preserved under `legacy-static/data/schedule.json`. A production schedule backend has not been selected. The designated College Boy schedule owner must:

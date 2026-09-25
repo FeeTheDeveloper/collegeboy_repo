@@ -1,9 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createSupabaseAdmin } from '@/lib/supabase-admin';
+import { isAllowedRequestOrigin } from '@/lib/site-config';
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
+  if (!isAllowedRequestOrigin(request.headers.get('origin'))) {
+    return NextResponse.json({ message: 'Request origin is not allowed.' }, { status: 403 });
+  }
   const supabase = createSupabaseAdmin();
   if (!supabase) return NextResponse.json({ message: 'Signup is not connected yet.' }, { status: 503 });
 

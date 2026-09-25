@@ -1,4 +1,9 @@
 build/
 node_modules/
+.next/
+*.tsbuildinfo
+premium-audit.json
+.env*
+!.env.example
 *.zip
 .DS_Store

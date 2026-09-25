@@ -1,6 +1,6 @@
 # Asset permission manifest
 
-No photography is committed in this draft. The handoff included the files below, but it did not include documented reuse approval. They remain excluded until the client supplies the permission status and approver.
+The food photograph supplied directly for this build is committed below. Family and memorial material remains excluded pending the specific approval required by the project handoff. Large video originals remain outside Git until an approved delivery/transcoding plan is chosen.
 
 | Handoff file | Intended placement | Source stated in handoff | Permission status | Approver |
 | --- | --- | --- | --- | --- |
@@ -10,6 +10,11 @@ No photography is committed in this draft. The handoff included the files below,
 | `lineup.webp` | Catering | Wix-origin image; zero-byte handoff file | Pending | Pending |
 | `lifestyle.webp` | Story | Wix-origin image | Pending | Pending |
 | `hoagie.webp` | Unassigned | Wix-origin image | Pending | Pending |
+| `spicy_chicken_cheesteak_.png` | Home hero | User-supplied Dropbox upload | Supplied for this site build | King Fee/client confirmation before production |
+| `collegeboy_headshot.png` | Possible family story | User-supplied Dropbox upload | Family approval not documented | Pending |
+| `family_shot.png` | Possible family story | User-supplied Dropbox upload | Family approval not documented | Pending |
+| `College Boy Media.MP4` | Possible brand video | User-supplied Dropbox upload, 135 MB | Editorial/rights review pending | Pending |
+| `promo_.mov` | Possible brand video | User-supplied Dropbox upload, 323 MB | Editorial/rights review pending | Pending |
 
 Before adding an asset, record its original source URL or family source, intended placement, ownership/photographer permission, identifiable-person consent where applicable, approval date, and approver.
 

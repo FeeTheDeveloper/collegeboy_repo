@@ -1,21 +1,21 @@
 # College Boy Cheesesteaks website
 
-Static review build for College Boy Cheesesteaks. It preserves the handoff's red/black, food-truck editorial direction while withholding photography, family history, unverified prices, and unverified schedule data until the client approves them.
+Next.js review build for College Boy Cheesesteaks. It turns the original static handoff into a responsive marketing site with conditional Clerk authentication and a consent-based Supabase mailing-list route. Family history, review quotes, prices, and schedule data remain gated until verified.
 
 ## Run locally
 
-Requires Node.js 18 or newer.
+Requires Node.js 20.9 or newer.
 
 ```sh
 npm run build
-npx --yes serve build
+npm start
 ```
 
-The build validates every local stylesheet/script reference and the schedule schema, then copies `dist/` to the ignored `build/` directory. The source remains `dist/`.
+Copy `.env.example` to `.env.local` only after dedicated College Boy Clerk and Supabase resources exist. Never reuse another client or Fee The Developer service-role credential.
 
 ## Schedule ownership
 
-The single schedule source is `dist/data/schedule.json`. The designated College Boy schedule owner must:
+The earlier static schedule source is preserved under `legacy-static/data/schedule.json`. A production schedule backend has not been selected. The designated College Boy schedule owner must:
 
 1. Use ISO 8601 timestamps with offsets for `startsAt` and `endsAt`.
 2. Include `stopName`, `streetAddress`, `status`, and the IANA `timeZone` on every stop.
@@ -42,10 +42,13 @@ Example entry:
 ## Review controls
 
 - `noindex,nofollow` stays enabled until an owner-approved production cutover.
-- The ZIP, `.openai/hosting.json`, private preview identity, and all unapproved images are excluded.
+- The ZIP, `.openai/hosting.json`, private preview identity, family images, and unreviewed video originals are excluded.
 - Current item availability and prices remain with the ordering providers.
 - Catering is a visible email action; the inbox must be confirmed as monitored before launch.
-- Kevin's story, `#CBKForever`, family names, and family photographs are not included.
+- Kevin's story, `#CBKForever`, family names, and family photographs are not included without documented family approval.
+- Google and Yelp cards are labeled placeholders; no rating or quote is fabricated.
+- The mailing-list form stays disabled until a dedicated College Boy Supabase project is configured.
+- Clerk routes return 404 until a dedicated Clerk application is configured.
 - No production host, DNS, Wix site, analytics, or third-party listing has been changed.
 
 ## Before production

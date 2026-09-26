@@ -63,7 +63,17 @@ If Clerk variables are absent, public pages remain available and protected accou
 - [ ] Pickup, Uber Eats, DoorDash, Instagram, and catering links point to the approved destinations.
 - [ ] No secrets appear in build logs, repository files, or client bundles.
 - [ ] Preview remains `noindex`; no production DNS or domain cutover occurs during preview review.
+- [ ] Installed on one iPhone and one Android handset: home-screen icon and name are the College Boy mark, not a screenshot.
+- [ ] Opening film and brand film play on cellular on both handsets; a blocked or slow start shows the matching message rather than a load failure.
+- [ ] Menu sheet opens, navigates, and closes on a phone; no section is reachable only by scrolling.
+- [ ] A pasted link shows the share card in a message app.
 - [ ] Rollback deployment/commit and owner are recorded before production approval.
+
+## Mobile and installed-app behaviour
+
+The phone experience, the web manifest, the generated icons, the safe-area handling, and the video playback states are documented in `MOBILE_HANDOFF.md`. Regenerate icons and the share card with `node scripts/generate-app-icons.mjs` after any brand change and commit the output.
+
+Authentication chrome uses `useAuth()` from Clerk Core 3. `<SignedIn>`, `<SignedOut>`, and `<Protect>` were removed in `@clerk/nextjs@7` and throw at render; the server replacement is `<Show when="…">`, which awaits `auth()` and would make every page carrying the header dynamic.
 
 ## Demo domain and routes
 

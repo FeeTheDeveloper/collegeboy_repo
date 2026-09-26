@@ -13,5 +13,6 @@ export default function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)', '/(api|trpc)(.*)']
+  // Media extensions stay out of the matcher so range requests for the films skip auth.
+  matcher: ['/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest|mp4|webm|mov|m4v|vtt|mp3|m4a|avif)).*)', '/(api|trpc)(.*)']
 };

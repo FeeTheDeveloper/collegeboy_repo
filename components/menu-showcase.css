@@ -12,7 +12,7 @@
 .menu-card-final{background:var(--red)}
 .menu-card-final .menu-card-tag,.menu-card-final h3,.menu-card-final p{color:var(--white)}
 .menu-image-note{max-width:1450px;margin:.9rem auto 0;color:#c2b7b0;font-size:.7rem;line-height:1.6}
-.delivery-selector{max-width:1450px;margin:clamp(3rem,6vw,6rem) auto 0;scroll-margin-top:110px}
+.delivery-selector{max-width:1450px;margin:clamp(3rem,6vw,6rem) auto 0;scroll-margin-top:calc(var(--header-h) + 22px)}
 .delivery-heading{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:1.6rem}
 .delivery-heading .eyebrow{color:var(--butter)}
 .delivery-heading h3{font-family:var(--display);font-size:clamp(2.3rem,4vw,4.2rem);font-weight:400;line-height:1.06;margin:.7rem 0 0}

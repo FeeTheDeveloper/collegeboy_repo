@@ -6,14 +6,14 @@
 .opening-picture{object-fit:cover;object-position:center;z-index:-3}
 .opening-shade{z-index:-2;background:linear-gradient(180deg,rgba(19,15,15,.65),transparent 25%,transparent 55%,rgba(19,15,15,.96));transition:background .6s}
 .opening-cinema[data-reveal=true] .opening-shade{background:linear-gradient(180deg,rgba(19,15,15,.72),rgba(19,15,15,.53) 50%,rgba(19,15,15,.97))}
-.opening-topline{position:absolute;top:max(1.8rem,env(safe-area-inset-top));left:4%;right:4%;display:flex;justify-content:space-between;gap:1rem;font-family:var(--utility);font-size:.75rem;font-weight:700;letter-spacing:.18em}
+.opening-topline{position:absolute;top:max(1.8rem,env(safe-area-inset-top));left:max(4%,env(safe-area-inset-left));right:max(4%,env(safe-area-inset-right));display:flex;justify-content:space-between;gap:1rem;font-family:var(--utility);font-size:.75rem;font-weight:700;letter-spacing:.18em}
 .opening-lockup{position:absolute;inset:13% 5% 23%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0;transform:translateY(16px);transition:opacity .65s,transform .65s;pointer-events:none}
 .opening-cinema[data-reveal=true] .opening-lockup{opacity:1;transform:translateY(0)}
 .opening-lockup .truck-logo{width:clamp(135px,15vw,220px);margin-bottom:1.1rem}
 .opening-lockup h2{font-family:var(--display);font-weight:400;font-size:clamp(2.8rem,7.6vw,7.5rem);line-height:.96;letter-spacing:-.015em;margin:0}
 .opening-lockup em{font-style:normal;color:var(--butter)}
 .opening-lockup p{margin:1.2rem 0 0;font-family:var(--utility);font-weight:600;font-size:clamp(.9rem,1.4vw,1.2rem);letter-spacing:.24em}
-.opening-bottom{position:absolute;bottom:max(1.8rem,env(safe-area-inset-bottom));left:4%;right:4%}
+.opening-bottom{position:absolute;bottom:max(1.8rem,env(safe-area-inset-bottom));left:max(4%,env(safe-area-inset-left));right:max(4%,env(safe-area-inset-right))}
 .opening-status{font-family:var(--utility);font-size:.75rem;font-weight:600;letter-spacing:.15em;min-height:1.5em;margin-bottom:.9rem}
 .opening-controls{display:flex;align-items:center;gap:.75rem}
 .opening-controls button,.opening-controls a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.8rem 1.1rem;border:1px solid rgba(248,239,223,.55);background:var(--ink);color:var(--cream);font-family:var(--utility);font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;cursor:pointer;transition:background .2s,color .2s}
@@ -23,9 +23,12 @@
 .opening-controls :focus-visible{outline:3px solid var(--butter);outline-offset:4px}
 .opening-progress{height:2px;margin-top:1.4rem;background:rgba(248,239,223,.3)}
 .opening-progress span{display:block;height:100%;background:var(--butter);transition:width .2s linear}
+.opening-progress{overflow:hidden}
+.opening-cinema[data-status=loading] .opening-progress span{width:34%!important;animation:opening-buffer 1.2s ease-in-out infinite}
+@keyframes opening-buffer{from{transform:translateX(-110%)}to{transform:translateX(330%)}}
 .opening-review-note{padding:1.4rem 4%;background:var(--ink);color:var(--cream);font-size:.8rem;margin:0}
 .opening-review-note a{text-decoration:underline}
 .opening-visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
-@media(max-width:640px){.opening-cinema{min-height:620px}.opening-picture{object-fit:contain;object-position:center 35%;background:var(--ink)}.opening-topline{top:1.3rem;font-size:.65rem}.opening-topline span:last-child{display:none}.opening-lockup{inset:10% 4% 28%}.opening-lockup h2{font-size:clamp(2.6rem,11vw,4.4rem)}.opening-lockup p{font-size:.8rem;letter-spacing:.14em}.opening-controls{flex-wrap:wrap;gap:.5rem}.opening-controls button{flex:1}.opening-controls .opening-enter{width:100%;margin-left:0}.opening-bottom{bottom:max(1.3rem,env(safe-area-inset-bottom))}.opening-status{font-size:.65rem}.opening-lockup .truck-logo{width:150px}}
+@media(max-width:640px){.opening-cinema{min-height:620px}.opening-picture{object-fit:contain;object-position:center;background:var(--ink)}.opening-topline{top:max(1.3rem,env(safe-area-inset-top));font-size:.65rem}.opening-topline span:last-child{display:none}.opening-lockup{inset:calc(env(safe-area-inset-top) + 1.9rem) 4% auto;justify-content:flex-start}.opening-lockup p{margin-top:.6rem}.opening-lockup h2{font-size:clamp(2.3rem,10vw,3.6rem)}.opening-lockup p{font-size:.8rem;letter-spacing:.14em}.opening-lockup .truck-logo{width:124px;margin-bottom:.7rem}.opening-controls{flex-wrap:wrap;gap:.5rem}.opening-controls button{flex:1 1 8rem}.opening-controls .opening-enter{flex:1 0 100%;margin-left:0}.opening-bottom{bottom:max(1.3rem,env(safe-area-inset-bottom))}.opening-status{font-size:.65rem}}
 @media(max-height:540px) and (min-width:641px){.opening-cinema{min-height:400px}.opening-lockup{inset:13% 5% 28%}.opening-lockup .truck-logo{width:100px;margin-bottom:.3rem}.opening-lockup h2{font-size:2.5rem}.opening-lockup p{margin:.5rem 0 0}.opening-topline{top:.8rem}.opening-bottom{bottom:.8rem}}
-@media(prefers-reduced-motion:reduce){.opening-lockup,.opening-shade,.opening-controls button,.opening-controls a,.opening-progress span{transition:none}.cinema-dialog.showtime-intro{display:none}}
+@media(prefers-reduced-motion:reduce){.opening-lockup,.opening-shade,.opening-controls button,.opening-controls a,.opening-progress span{transition:none}.opening-cinema[data-status=loading] .opening-progress span{animation:none}.cinema-dialog.showtime-intro{display:none}}

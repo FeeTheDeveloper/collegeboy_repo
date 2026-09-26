@@ -12,8 +12,10 @@ export function ShowtimeIntro() {
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
-    if (connection?.saveData) return;
+    // A 3 MB gate is wrong on a metered or crawling connection: go straight to the site.
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    if (connection?.saveData || (connection?.effectiveType && /^(slow-)?2g$/.test(connection.effectiveType))) return;
+    if (navigator.onLine === false) return;
     try { if (sessionStorage.getItem(storageKey)) return; } catch { /* Optional storage. */ }
     const frame = requestAnimationFrame(() => {
       try { sessionStorage.setItem(storageKey, 'seen'); } catch { /* Optional storage. */ }
@@ -25,8 +27,12 @@ export function ShowtimeIntro() {
   useEffect(() => {
     if (!visible || !dialog.current) return;
     const modal = dialog.current;
+    const root = document.documentElement;
+    const previousRoot = root.style.overflow;
     const previousOverflow = document.body.style.overflow;
     const previousFocus = document.activeElement as HTMLElement | null;
+    // Locking both stops iOS Safari scrolling the page behind the open dialog.
+    root.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     modal.showModal();
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -34,6 +40,7 @@ export function ShowtimeIntro() {
     motion.addEventListener('change', motionChanged);
     return () => {
       modal.close();
+      root.style.overflow = previousRoot;
       document.body.style.overflow = previousOverflow;
       motion.removeEventListener('change', motionChanged);
       const target = previousFocus && previousFocus !== document.body && previousFocus.isConnected

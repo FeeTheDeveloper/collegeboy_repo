@@ -15,7 +15,17 @@ export function FilmPlayer() {
   const video = useRef<HTMLVideoElement>(null);
   const resume = useRef<{ time: number; playing: boolean } | null>(null);
   const [mix, setMix] = useState<'enhanced' | 'original'>('enhanced');
-  const [failed, setFailed] = useState(false);
+  const [state, setState] = useState<'idle' | 'buffering' | 'playing' | 'failed'>('idle');
+  const [metered, setMetered] = useState(false);
+
+  useEffect(() => {
+    const player = video.current;
+    if (!player) return;
+    // Let iPhones hand the film to an Apple TV instead of failing on the small screen.
+    player.setAttribute('x-webkit-airplay', 'allow');
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    setMetered(Boolean(connection?.saveData) || /^((slow-)?2g|3g)$/.test(connection?.effectiveType ?? ''));
+  }, []);
 
   useEffect(() => {
     const player = video.current;
@@ -31,15 +41,17 @@ export function FilmPlayer() {
       resume.current = { time: player.currentTime, playing: !player.paused };
       player.pause();
     }
-    setFailed(false);
+    setState('idle');
     setMix(next);
   }
 
   return <div className="film-player">
-    <video ref={video} src={sources[mix]} controls playsInline preload="none"
+    <video ref={video} src={sources[mix]} controls playsInline preload={metered ? 'none' : 'metadata'}
       poster="/media/college-boy-film-poster.jpg" width={720} height={1064}
       aria-label="College Boy Cheesesteaks brand film"
-      onError={() => setFailed(true)}
+      onWaiting={() => setState(current => current === 'failed' ? current : 'buffering')}
+      onPlaying={() => setState('playing')} onCanPlay={() => setState(current => current === 'buffering' ? 'playing' : current)}
+      onError={() => setState('failed')}
       onLoadedMetadata={() => {
         const player = video.current;
         const previous = resume.current;
@@ -54,8 +66,9 @@ export function FilmPlayer() {
       <button type="button" aria-pressed={mix === 'enhanced'} onClick={() => changeMix('enhanced')}>Enhanced dialogue</button>
       <button type="button" aria-pressed={mix === 'original'} onClick={() => changeMix('original')}>Original audio</button>
     </fieldset>
-    <p className="film-player-note">Original voices. Captions appear within the film.</p>
-    {failed && <p role="alert">The video could not load. <a href={sources[mix]}>Open the video directly</a> or try the other audio mix.</p>}
+    <p className="film-player-note">Original voices. Captions appear within the film.{metered ? ' This connection looks slow or metered — the film is about 31 MB.' : ''}</p>
+    {state === 'buffering' && <p className="film-player-status" role="status">Buffering the film…</p>}
+    {state === 'failed' && <p className="film-player-status" role="alert">The video could not load. <button type="button" className="text-button" onClick={() => { const player = video.current; if (!player) return; setState('idle'); player.load(); }}>Try again</button>, <a href={sources[mix]}>open it directly</a>, or switch the audio mix.</p>}
   </div>;
 }
 
@@ -92,13 +105,17 @@ export function BrandFilm() {
     if (!open) return;
     const modal = dialog.current;
     if (!modal) return;
+    const root = document.documentElement;
+    const previousRoot = root.style.overflow;
     const previousOverflow = document.body.style.overflow;
     const fallbackOpener = section.current?.querySelector('button');
     modal.showModal();
+    root.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     return () => {
       modal.querySelector('video')?.pause();
       modal.close();
+      root.style.overflow = previousRoot;
       document.body.style.overflow = previousOverflow;
       if (opener.current?.isConnected) opener.current.focus();
       else fallbackOpener?.focus();

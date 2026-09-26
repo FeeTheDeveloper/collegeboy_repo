@@ -14,7 +14,7 @@ Processing flow: https://elevenlabs.io/app/flows/jVibkF26RQPTt29uugY8
 
 Exact isolation instruction: "Isolate the original spoken dialogue from background noise and music while preserving each speaker and timing."
 
-The video source is only loaded after playback is requested; the homepage loads a poster rather than downloading the full clip. The films are local assets under `public/media/`. Before eventual production publication, listen to both mixes end-to-end and confirm family and third-party footage approval. Burned-in captions cannot be switched off or read by assistive technology; a separately verified WebVTT track remains a potential accessibility improvement. The automatic transcript has recognition errors and is not used as website copy.
+Only the poster and the file metadata load up front; the clip itself downloads when playback starts, and on a save-data or slow connection metadata is skipped too and the 31 MB weight is stated in the player. The films are local assets under `public/media/`. Before eventual production publication, listen to both mixes end-to-end and confirm family and third-party footage approval. Burned-in captions cannot be switched off or read by assistive technology; a separately verified WebVTT track remains a potential accessibility improvement. The automatic transcript has recognition errors and is not used as website copy.
 
 ## Verification
 

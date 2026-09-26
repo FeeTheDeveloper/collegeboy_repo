@@ -5,7 +5,7 @@
 .catering-truck .truck-logo{width:100%;max-width:650px}
 .catering-truck figure{margin:0;width:100%}
 .catering-truck figcaption{color:var(--cream);font-family:var(--utility);font-size:.8rem;text-align:center;letter-spacing:.17em;margin-top:1.8rem}
-.truck-opening.showtime-intro{position:fixed;inset:0;margin:0;border:0;padding:0;width:100vw;max-width:none;height:100svh;max-height:none;background:var(--ink);color:var(--cream);overflow:hidden;animation:truck-opening-fade 4.6s both}
+.truck-opening.showtime-intro{position:fixed;inset:0;margin:0;border:0;padding:0;width:100%;max-width:none;height:100svh;max-height:none;background:var(--ink);color:var(--cream);overflow:hidden;animation:truck-opening-fade 4.6s both}
 .truck-opening.showtime-intro::before,.truck-opening.showtime-intro::after{display:none}
 .truck-opening::backdrop{background:var(--ink)}
 .truck-opening-heading{position:absolute;z-index:2;top:8%;left:6%;right:6%;text-align:center;animation:truck-heading-reveal .55s .15s both}
@@ -23,6 +23,9 @@
 @keyframes truck-heading-reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes truck-opening-fade{0%,88%{opacity:1}100%{opacity:0}}
 @media(max-width:1180px){.site-header{grid-template-columns:auto auto}.site-header nav{display:none}.header-actions{justify-self:end}}
-@media(max-width:640px){.truck-logo{width:76px}.wordmark{font-size:.9rem;gap:.4rem}.wordmark small{font-size:.65rem}.site-header{gap:.6rem;padding-inline:.8rem}.order-link{padding:.75rem .7rem}.truck-opening-heading{top:16%;left:1rem;right:1rem}.truck-opening-heading h2{font-size:clamp(2.8rem,13vw,4rem)}.truck-opening-art{inset:35% 2% 20%}.truck-opening-art img{max-height:35svh}.truck-opening-baseline{bottom:23%;left:5%;right:5%;gap:.5rem;font-size:.6rem;letter-spacing:.1em}.truck-opening-enter{bottom:10%}.catering-truck{padding:2.5rem 1.2rem}}
+@media(max-width:640px){.truck-logo{width:76px}.wordmark{font-size:.9rem;gap:.4rem}.wordmark small{font-size:.65rem}.site-header{gap:.6rem;padding-inline:max(.8rem,env(safe-area-inset-left)) max(.8rem,env(safe-area-inset-right))}.order-link{padding:.75rem .7rem}.truck-opening-heading{top:16%;left:1rem;right:1rem}.truck-opening-heading h2{font-size:clamp(2.8rem,13vw,4rem)}.truck-opening-art{inset:35% 2% 20%}.truck-opening-art img{max-height:35svh}.truck-opening-baseline{bottom:23%;left:5%;right:5%;gap:.5rem;font-size:.6rem;letter-spacing:.1em}.truck-opening-enter{bottom:10%}.catering-truck{padding:2.5rem 1.2rem}}
 @media(max-height:540px) and (min-width:641px){.truck-opening-heading{top:4%}.truck-opening-heading h2{font-size:2.4rem}.truck-opening-art{inset:26% 12% 17%}.truck-opening-art img{max-height:45svh}.truck-opening-baseline{display:none}.truck-opening-enter{bottom:3%;padding:.6rem 1rem}}
 @media(prefers-reduced-motion:reduce){.truck-opening.showtime-intro{display:none}.truck-opening-art,.truck-opening-heading{animation:none}}
+/* Small phones: the truck mark already carries the wordmark, so the header keeps the CTA whole. */
+.order-link{white-space:nowrap}
+@media(max-width:430px){.wordmark>span:not(.truck-logo){display:none}.truck-logo{width:84px}.site-header{gap:.5rem}.order-link{font-size:.75rem;padding:.7rem .75rem}.mobile-nav-button{padding:.6rem .7rem;letter-spacing:.08em}}

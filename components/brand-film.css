@@ -10,7 +10,7 @@
 .film-intro h2 em{font-style:normal;color:var(--red)}
 .film-intro p{max-width:35rem;color:var(--muted)}
 .film-intro .text-link{display:block;margin-top:1.5rem}
-.film-prompt{position:fixed;left:1.2rem;bottom:1.2rem;z-index:55;display:flex;align-items:center;background:var(--ink);color:var(--cream);border:1px solid #796f6b;box-shadow:5px 5px 0 var(--red);max-width:calc(100vw - 2.4rem);animation:film-enter .25s ease-out}
+.film-prompt{position:fixed;left:max(1.2rem,env(safe-area-inset-left));bottom:max(1.2rem,env(safe-area-inset-bottom));z-index:55;display:flex;align-items:center;background:var(--ink);color:var(--cream);border:1px solid #796f6b;box-shadow:5px 5px 0 var(--red);max-width:calc(100vw - 2.4rem);animation:film-enter .25s ease-out}
 .film-prompt button{cursor:pointer;color:inherit;background:transparent;border:0}
 .film-prompt-watch{display:flex;align-items:center;gap:1rem;text-align:left;padding:1rem;font-family:var(--utility);font-size:1.1rem;font-weight:700}
 .film-prompt-watch>span:first-child{color:var(--butter)}
@@ -41,3 +41,5 @@
 @keyframes film-enter{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:760px){.brand-film,.film-route-grid{grid-template-columns:1fr}.film-cover{min-height:480px}.film-intro{padding:3rem 1.2rem}.film-route-grid>.film-player{grid-row:2}.film-dialog{max-height:95svh}.film-player video{max-height:60svh}}
 @media(prefers-reduced-motion:reduce){.film-prompt{animation:none}}
+.film-player-status{margin:.6rem 0 0;font-family:var(--utility);font-size:.85rem;letter-spacing:.06em;color:var(--butter)}
+.film-player-status .text-button{color:inherit;font:inherit;min-height:44px}

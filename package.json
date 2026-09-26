@@ -12,6 +12,7 @@
   "dependencies": {
     "@clerk/nextjs": "7.9.7",
     "@supabase/supabase-js": "2.117.1",
+    "ai": "^7.0.116",
     "next": "16.3.6",
     "react": "19.3.0",
     "react-dom": "19.3.0"

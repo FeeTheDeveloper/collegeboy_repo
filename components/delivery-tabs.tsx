@@ -1,0 +1,56 @@
+'use client';
+
+import { useRef, useState, type KeyboardEvent } from 'react';
+import Image from 'next/image';
+import { orderOptions } from '@/lib/order-options';
+
+function DeliverySymbol({ pickup = false }: { pickup?: boolean }) {
+  return <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+    {pickup ? <><path d="M3 8h14v12H3zM17 12h4l4 5v3h-8M18 12v5h7" /><circle cx="8" cy="21" r="2.5" fill="var(--ink)" /><circle cx="21" cy="21" r="2.5" fill="var(--ink)" /></>
+      : <><path d="M6 9h16l2 15H4L6 9Z" /><path d="M10 10V7a4 4 0 0 1 8 0v3M10 17h8M15 14l3 3-3 3" /></>}
+  </svg>;
+}
+
+export function DeliveryTabs() {
+  const [selected, setSelected] = useState(0);
+  const buttons = useRef<(HTMLButtonElement | null)[]>([]);
+
+  function navigate(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    const keys = ['ArrowRight', 'ArrowLeft', 'Home', 'End'];
+    if (!keys.includes(event.key)) return;
+    event.preventDefault();
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? orderOptions.length - 1
+      : (index + (event.key === 'ArrowRight' ? 1 : -1) + orderOptions.length) % orderOptions.length;
+    setSelected(next);
+    buttons.current[next]?.focus();
+  }
+
+  return <div className="delivery-selector" id="order-options">
+    <div className="delivery-heading"><div><span className="eyebrow">YOUR NEXT MOVE</span><h3>Come get your jawn.</h3></div><p>Pickup at the truck.<br /> Or check a delivery partner.</p></div>
+    <div className="delivery-tablist" role="tablist" aria-label="Pickup and delivery options">
+      {orderOptions.map((option, index) => <button key={option.id} type="button" role="tab"
+        id={`order-tab-${option.id}`} aria-controls={`order-panel-${option.id}`} aria-selected={selected === index}
+        tabIndex={selected === index ? 0 : -1} className={`delivery-tab delivery-${option.id}`}
+        ref={element => { buttons.current[index] = element; }}
+        onClick={() => setSelected(index)} onKeyDown={event => navigate(event, index)}>
+        <DeliverySymbol pickup={option.id === 'pickup'} />
+        <span className="delivery-tab-name">{option.id === 'uber' ? <>Uber <em>Eats</em></> : option.name}</span>
+        <span className="delivery-tab-type">{option.id === 'pickup' ? 'PICKUP' : 'DELIVERY'}</span>
+      </button>)}
+    </div>
+    {orderOptions.map((option, index) => <section key={option.id} role="tabpanel" tabIndex={0}
+      id={`order-panel-${option.id}`} aria-labelledby={`order-tab-${option.id}`} hidden={selected !== index}
+      className={`delivery-panel delivery-${option.id}`}>
+      <div className="delivery-panel-copy"><span className="delivery-kicker">{option.label}</span>
+        <h4>{option.title}</h4><p>{option.description}</p>
+        <ol className="delivery-steps">{option.steps.map(step => <li key={step}>{step}</li>)}</ol>
+        <a className="delivery-action" href={option.href} target="_blank" rel="noopener noreferrer">{option.action}<span aria-hidden="true">↗</span><span className="menu-visually-hidden"> (opens in a new tab)</span></a>
+        <small>{option.detail}</small>
+      </div>
+      <div className="delivery-art"><Image src="/media/college-boy-cheesesteak-feast-enhanced.png" alt="Cheesesteak halves and fries served in red-and-white checkered paper" fill sizes="(max-width: 720px) 100vw, 40vw" />
+        <div className="delivery-receipt"><span>COLLEGE BOY</span><strong>{option.id === 'pickup' ? 'PICKUP' : 'DELIVERY'}</strong><span>{option.provider}</span></div>
+      </div>
+    </section>)}
+    <p className="delivery-disclaimer">You’ll finish your order on the provider’s website. Delivery listings may be unavailable; check with the provider before ordering.</p>
+  </div>;
+}

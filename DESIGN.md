@@ -58,11 +58,15 @@ Use hard offset shadows only for actionable or temporary surfaces: the location 
 
 ## Shapes
 
-Corners remain square. The single rotated ticket and slightly rotated CB seal provide controlled imperfection.
+Corners remain square. The rotated ticket provides controlled imperfection. The simplified red-truck mark replaces the CB seal; one transparent Canva master is shared by the header, catering panel, and large opening splash.
 
 ## Components
 
 The global scrollbar, focus ring, buttons, cards, form states, and reduced-motion fallbacks are defined in `app/globals.css`. Clerk owns authentication controls when configured. The site-owned subscription form never claims success unless the server confirms a Supabase write.
+
+The opening is a short, source-inspired truck-arrival film: head-on approach, curbside turn, service hatch opening, then the established truck mark and the real truck slogan. `OpeningPlayer` owns playback and the final lockup for both the homepage dialog and `/opening` replay page. It begins muted, offers pause and immediate entry, and restarts from the beginning when sound is enabled. The homepage skips the film for reduced-motion and data-saving visitors. The sequence is brand storytelling, not evidence of a real event or location.
+
+Existing runtime CSS remains canonical: `colors.primary` maps to `--red`, `ink` to `--ink`, `breadCream` to `--cream`, and `cheeseGold` to `--butter`; display and utility roles consume `--display` and `--utility`. The opening reuses those tokens without changing sibling pages.
 
 ## Do's and Don'ts
 

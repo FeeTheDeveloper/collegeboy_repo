@@ -13,6 +13,58 @@ npm start
 
 Copy `.env.example` to `.env.local` only after dedicated College Boy Clerk and Supabase resources exist. Never reuse another client or Fee The Developer service-role credential.
 
+## Vercel deployment handoff
+
+Current status: **READY FOR VERCEL HANDOFF — NOT DEPLOYED**.
+
+The repository is a standard Next.js deployment. Vercel should use the repository root with:
+
+- Framework preset: `Next.js`
+- Install command: `npm ci`
+- Build command: `npm run build`
+- Node.js: `20.x` or newer; `package.json` requires `>=20.9`
+- Output: automatic Next.js output; do not set a static output directory
+
+Before linking or deploying, verify the intended Vercel team and project. This checkout currently has no `.vercel` project link, and the active Git branch is `feat/collegeboy-site-rebuild`; Vercel will not receive these local changes until the reviewed branch is pushed and selected by the project.
+
+```sh
+vercel whoami
+vercel link
+vercel pull --environment=preview
+vercel deploy
+```
+
+Use `vercel --prod` only after the preview URL, redirects, images, ordering links, `/subscribe` fallback, and Clerk behavior have been reviewed and an owner approves production publication. Do not pass tokens in command arguments; use the authenticated CLI or `VERCEL_TOKEN` in CI.
+
+### Vercel environment variables
+
+Configure values in the matching Vercel environment rather than committing them. Keep preview and production values separated.
+
+| Variable | Preview | Production | Notes |
+| --- | --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Approved preview/demo origin | Exact approved public origin | Must be an HTTP(S) origin; `https://cbkforever.com` is the safe fallback |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Optional | Only after dedicated College Boy Clerk setup | Pair with the matching secret key |
+| `CLERK_SECRET_KEY` | Optional | Only after dedicated College Boy Clerk setup | Never expose or commit |
+| `NEXT_PUBLIC_CLERK_SIGN_IN_URL` | `/sign-in` | `/sign-in` | Keep aligned with Clerk routes |
+| `NEXT_PUBLIC_CLERK_SIGN_UP_URL` | `/sign-up` | `/sign-up` | Keep aligned with Clerk routes |
+| `NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL` | `/account` | `/account` | Dedicated app only |
+| `NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL` | `/account` | `/account` | Dedicated app only |
+| `NEXT_PUBLIC_SUPABASE_URL` | Optional | Only after dedicated College Boy project setup | Required with the service-role key for signup writes |
+| `SUPABASE_SERVICE_ROLE_KEY` | Optional | Only after dedicated College Boy project setup | Server-only; never use a Fee The Developer or another client key |
+
+If Clerk variables are absent, public pages remain available and protected account/auth behavior stays intentionally unavailable. If Supabase variables are absent, the mailing-list endpoint returns a safe not-connected response. Configure these services only after the dedicated resources, migrations, origins, and owner approvals are verified.
+
+### Preview acceptance checklist
+
+- [ ] Preview deployment is from the reviewed commit and intended Vercel project.
+- [ ] `/`, `/film`, `/opening`, `/subscribe`, `/account`, `/sign-in`, and `/sign-up` respond as expected.
+- [ ] `/projects-2` redirects to `/#menu`; `/contact-8` redirects to `/#catering`.
+- [ ] Generated menu imagery and all existing media return successfully; no missing placeholder `.webp` references remain.
+- [ ] Pickup, Uber Eats, DoorDash, Instagram, and catering links point to the approved destinations.
+- [ ] No secrets appear in build logs, repository files, or client bundles.
+- [ ] Preview remains `noindex`; no production DNS or domain cutover occurs during preview review.
+- [ ] Rollback deployment/commit and owner are recorded before production approval.
+
 ## Demo domain and routes
 
 `https://cbkforever.com` is the intended demo origin and the fallback canonical URL. Set `NEXT_PUBLIC_SITE_URL` to the exact approved origin in each environment. Empty, malformed, or non-HTTP(S) values fall back safely to the demo origin.

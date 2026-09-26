@@ -1,0 +1,28 @@
+.truck-logo{display:block;flex:none;width:112px;line-height:0}
+.truck-logo img{display:block;width:100%;height:auto;object-fit:contain}
+.wordmark{gap:.65rem;white-space:nowrap}
+.catering-truck{display:flex;align-items:center;justify-content:center;padding:clamp(2rem,5vw,5rem);background:var(--ink);min-width:0}
+.catering-truck .truck-logo{width:100%;max-width:650px}
+.catering-truck figure{margin:0;width:100%}
+.catering-truck figcaption{color:var(--cream);font-family:var(--utility);font-size:.8rem;text-align:center;letter-spacing:.17em;margin-top:1.8rem}
+.truck-opening.showtime-intro{position:fixed;inset:0;margin:0;border:0;padding:0;width:100vw;max-width:none;height:100svh;max-height:none;background:var(--ink);color:var(--cream);overflow:hidden;animation:truck-opening-fade 4.6s both}
+.truck-opening.showtime-intro::before,.truck-opening.showtime-intro::after{display:none}
+.truck-opening::backdrop{background:var(--ink)}
+.truck-opening-heading{position:absolute;z-index:2;top:8%;left:6%;right:6%;text-align:center;animation:truck-heading-reveal .55s .15s both}
+.truck-opening-heading .eyebrow{color:var(--cream);letter-spacing:.3em;font-size:clamp(.65rem,1vw,.85rem)}
+.truck-opening-heading h2{font-family:var(--display);font-weight:400;font-size:clamp(2.8rem,6vw,6rem);line-height:.92;letter-spacing:-.015em;margin:1rem 0 0;text-transform:uppercase}
+.truck-opening-heading em{font-style:normal;color:var(--butter)}
+.truck-opening-art{position:absolute;inset:30% 4% 13%;display:flex;align-items:center;justify-content:center;animation:truck-logo-arrival 1.5s .1s cubic-bezier(.16,1,.3,1) both}
+.truck-opening-art .truck-logo{width:min(100%,1100px)}
+.truck-opening-art img{max-height:49svh;width:100%;object-fit:contain}
+.truck-opening-baseline{position:absolute;left:8%;right:8%;bottom:13%;display:flex;gap:1.2rem;align-items:center;font-family:var(--utility);font-size:.7rem;letter-spacing:.22em;white-space:nowrap;color:#c9bfb5}
+.truck-opening-baseline>span{height:1px;flex:1;background:#5b504a}
+.truck-opening-enter{position:absolute;z-index:3;bottom:4%;left:50%;transform:translateX(-50%);background:transparent;border:1px solid #796f6b;padding:.85rem 1.5rem;color:var(--cream);font-family:var(--utility);font-weight:700;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;min-height:48px;white-space:nowrap}
+.truck-opening-enter:hover{background:var(--cream);color:var(--ink)}
+@keyframes truck-logo-arrival{from{opacity:0;transform:translateX(18%)}to{opacity:1;transform:translateX(0)}}
+@keyframes truck-heading-reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes truck-opening-fade{0%,88%{opacity:1}100%{opacity:0}}
+@media(max-width:1180px){.site-header{grid-template-columns:auto auto}.site-header nav{display:none}.header-actions{justify-self:end}}
+@media(max-width:640px){.truck-logo{width:76px}.wordmark{font-size:.9rem;gap:.4rem}.wordmark small{font-size:.65rem}.site-header{gap:.6rem;padding-inline:.8rem}.order-link{padding:.75rem .7rem}.truck-opening-heading{top:16%;left:1rem;right:1rem}.truck-opening-heading h2{font-size:clamp(2.8rem,13vw,4rem)}.truck-opening-art{inset:35% 2% 20%}.truck-opening-art img{max-height:35svh}.truck-opening-baseline{bottom:23%;left:5%;right:5%;gap:.5rem;font-size:.6rem;letter-spacing:.1em}.truck-opening-enter{bottom:10%}.catering-truck{padding:2.5rem 1.2rem}}
+@media(max-height:540px) and (min-width:641px){.truck-opening-heading{top:4%}.truck-opening-heading h2{font-size:2.4rem}.truck-opening-art{inset:26% 12% 17%}.truck-opening-art img{max-height:45svh}.truck-opening-baseline{display:none}.truck-opening-enter{bottom:3%;padding:.6rem 1rem}}
+@media(prefers-reduced-motion:reduce){.truck-opening.showtime-intro{display:none}.truck-opening-art,.truck-opening-heading{animation:none}}

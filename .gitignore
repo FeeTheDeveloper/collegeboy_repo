@@ -7,3 +7,5 @@ premium-audit.json
 !.env.example
 *.zip
 .DS_Store
+output/college-boy-film/
+output/college-boy-opening/

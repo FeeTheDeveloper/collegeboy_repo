@@ -12,8 +12,9 @@ export const metadata: Metadata = { title: 'Client workspace', robots: { index: 
 type Row = Record<string, unknown>;
 
 function Table({ title, rows, columns, empty }: { title: string; rows: Row[]; columns: [string, string][]; empty: string }) {
-  return <section className="dash-panel" aria-labelledby={`dash-${title}`}>
-    <h2 id={`dash-${title}`}>{title}</h2>
+  const headingId = `dash-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+  return <section className="dash-panel" aria-labelledby={headingId}>
+    <h2 id={headingId}>{title}</h2>
     {rows.length ? <div className="dash-scroll"><table><thead><tr>{columns.map(([, label]) => <th key={label} scope="col">{label}</th>)}</tr></thead>
       <tbody>{rows.map((row, index) => <tr key={index}>{columns.map(([key]) => <td key={key}>{row[key] == null ? '—' : String(row[key])}</td>)}</tr>)}</tbody></table></div>
       : <p className="dash-empty">{empty}</p>}

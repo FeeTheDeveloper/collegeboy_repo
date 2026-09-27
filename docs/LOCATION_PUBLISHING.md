@@ -8,7 +8,7 @@ The owner (or a Fee The Developer operator acting on the owner's written instruc
 
 | Surface | How it updates | Who publishes |
 | --- | --- | --- |
-| Website “Find the truck” | Automatically on deploy/revalidate (5 min) and re-checked every minute in the browser | Automatic, but only for stops that pass `isPublishable` |
+| Website “Find the truck” | Schedule edits go live when the commit is deployed. Stop expiry is re-evaluated on the server every 5 minutes and in the browser every minute, so an ended stop disappears without a deploy | Automatic, but only for stops that pass `isPublishable` |
 | Instagram feed / story | Draft caption in the review queue | Owner approves → a person posts |
 | Facebook **Page** | Draft caption in the review queue | Owner approves → a person posts |
 | Google Business Profile | Draft update in the review queue | Owner approves → a person posts |

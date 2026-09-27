@@ -1,0 +1,17 @@
+{
+  "$comment": "Sample two-week calendar (cycle 1, weeks 1-2). Slots are publishing days, not events. Stop posts appear only when content/schedule.json has a confirmed stop. Every item waits on an approved asset and Josette's approval.",
+  "weekOf": ["2026-10-05", "2026-10-12"],
+  "slots": [
+    { "week": 1, "day": "Mon", "pillar": "todays-stop", "channels": ["website", "instagram-story", "google-business-profile"], "source": "Generated per confirmed stop", "status": "waiting-on-schedule" },
+    { "week": 1, "day": "Tue", "pillar": "food-grill", "package": "FG-01 Mushroom cheesesteak on the grill", "channels": ["instagram-feed", "facebook-page"], "assetNeeded": "Approved photo or clip of a mushroom cheesesteak (plain roll)", "status": "waiting-on-asset" },
+    { "week": 1, "day": "Thu", "pillar": "event-catering", "package": "EC-01 Book the truck", "channels": ["instagram-feed", "facebook-page"], "assetNeeded": "Approved photo of the truck at an event (people consented)", "status": "waiting-on-asset" },
+    { "week": 1, "day": "Sat", "pillar": "food-grill", "package": "FG-02 Fries + bottled lemonade", "channels": ["instagram-story"], "assetNeeded": "Approved photo of lemonade in the bottle", "status": "waiting-on-asset" },
+    { "week": 1, "day": "Any", "pillar": "todays-stop", "channels": ["website", "instagram-story"], "source": "Each additional confirmed stop", "status": "waiting-on-schedule" },
+    { "week": 2, "day": "Mon", "pillar": "todays-stop", "channels": ["website", "instagram-story", "google-business-profile"], "source": "Generated per confirmed stop", "status": "waiting-on-schedule" },
+    { "week": 2, "day": "Tue", "pillar": "food-grill", "package": "FG-03 Classic cheesesteak cross-section", "channels": ["instagram-feed", "google-business-profile"], "assetNeeded": "Existing supplied cheesesteak photo (rights confirmation pending)", "status": "waiting-on-rights" },
+    { "week": 2, "day": "Thu", "pillar": "event-catering", "package": "EC-02 Office lunch", "channels": ["facebook-page", "instagram-feed"], "assetNeeded": "Catering package details from Josette (no invented pricing)", "status": "waiting-on-owner-content" },
+    { "week": 2, "day": "Sat", "pillar": "food-grill", "package": "FG-04 New site: find, menu, order", "channels": ["instagram-story", "instagram-feed"], "assetNeeded": "Screens of the approved live site", "status": "waiting-on-launch-approval" },
+    { "week": 2, "day": "Any", "pillar": "todays-stop", "channels": ["website", "instagram-story"], "source": "Each additional confirmed stop", "status": "waiting-on-schedule" }
+  ],
+  "legacy": "No Kevin legacy posts are scheduled until the family's written approval is recorded."
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 400" role="img" aria-labelledby="t d" data-illustration="mushroom-cheesesteak" data-roll="plain">
+  <title id="t">Illustration: mushroom cheesesteak</title>
+  <desc id="d">Stylized illustration, not a photograph. A long cheesesteak on a plain, unseeded hoagie roll, filled with chopped steak, sliced mushrooms and melted cheese, on red-and-white checkered paper.</desc>
+  <defs>
+    <pattern id="mc-checker" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(-6)"><rect width="40" height="40" fill="#fffdf8"/><rect width="20" height="20" fill="#e51b2b"/><rect x="20" y="20" width="20" height="20" fill="#e51b2b"/></pattern>
+    <linearGradient id="mc-roll" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eab06a"/><stop offset=".6" stop-color="#d48c3f"/><stop offset="1" stop-color="#b56d2b"/></linearGradient>
+  </defs>
+  <rect width="460" height="400" fill="#211919"/>
+  <path d="M0 262 460 232V400H0z" fill="url(#mc-checker)"/>
+  <!-- top of the roll, lifted open behind the filling: smooth crust, no seeds -->
+  <path d="M46 196q4-62 84-74h200q80 12 86 74z" fill="url(#mc-roll)"/>
+  <path d="M110 140q90-16 220-4" stroke="#f5c98a" stroke-width="9" stroke-linecap="round" fill="none" opacity=".75"/>
+  <path d="M52 196h356" stroke="#f6e3bd" stroke-width="10" stroke-linecap="round"/>
+  <!-- bottom of the roll: smooth crust, no seeds -->
+  <path d="M34 262q-6 48 44 54h304q50-6 44-54z" fill="url(#mc-roll)"/>
+  <path d="M40 262h380q-3 12-20 16H60q-17-4-20-16z" fill="#f6e3bd"/>
+  <!-- chopped steak -->
+  <path d="M40 264q-4-30 22-40q10-22 34-14q14-20 38-8q16-18 38-4q18-16 38-2q20-16 40 0q20-14 38 2q22-12 36 6q24-8 32 14q24 6 22 46z" fill="#6a3b1f"/>
+  <g fill="#8c5431"><circle cx="72" cy="240" r="11"/><circle cx="118" cy="226" r="12"/><circle cx="170" cy="236" r="11"/><circle cx="214" cy="222" r="12"/><circle cx="262" cy="236" r="11"/><circle cx="310" cy="224" r="12"/><circle cx="360" cy="238" r="11"/><circle cx="396" cy="248" r="9"/><circle cx="140" cy="252" r="9"/><circle cx="238" cy="252" r="9"/><circle cx="330" cy="254" r="9"/></g>
+  <!-- melted cheese -->
+  <path d="M52 222q40-16 80-4q40-16 80-4q40-14 80-4q40-12 90 6l-6 8q-6 22-14 2q-12 8-22 0q-6 26-16 2q-24 8-44 0q-6 22-16 0q-26 8-50 0q-8 22-16 0q-24 6-44 0q-8 24-18 2q-16 6-30-2z" fill="#f7cd4f" opacity=".9"/>
+  <!-- sliced mushrooms: cap-and-stem cross sections -->
+  <g fill="#d8bb8e" stroke="#7d5a36" stroke-width="2.5">
+    <path d="M78 222q20-30 40 0h-14v10h-12v-10z"/>
+    <path d="M150 214q20-30 40 0h-14v10h-12v-10z"/>
+    <path d="M226 208q20-30 40 0h-14v10h-12v-10z"/>
+    <path d="M300 212q20-30 40 0h-14v10h-12v-10z"/>
+    <path d="M362 222q18-26 36 0h-12v9h-12v-9z"/>
+    <path d="M112 244q16-24 32 0h-11v8h-10v-8z"/>
+    <path d="M268 244q16-24 32 0h-11v8h-10v-8z"/>
+  </g>
+</svg>

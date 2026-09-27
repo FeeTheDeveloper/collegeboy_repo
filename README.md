@@ -7,15 +7,38 @@ Next.js review build for College Boy Cheesesteaks. It turns the original static 
 Requires Node.js 20.9 or newer.
 
 ```sh
+npm ci
 npm run build
 npm start
 ```
+
+## Checks
+
+```sh
+npm run lint        # ESLint
+npm run typecheck   # TypeScript
+npm test            # Vitest: schedule, publishing gates, tenant RLS (PGlite), visual requirements
+npm run build
+npm run test:e2e    # Playwright against `next start` on :3100 (build first)
+```
+
+## Where things are
+
+| Area | Code | Docs |
+| --- | --- | --- |
+| Josette's corrections | `app/page.tsx`, `components/menu-showcase.tsx`, `public/media/illustrations/` | `docs/JOSETTE_CHANGELOG.md` |
+| Business details, brand line, story gate | `lib/content/business.ts` | — |
+| Ordering links (verified-only) | `lib/order-options.ts` | — |
+| Schedule | `content/schedule.json`, `lib/schedule.ts` | `docs/LOCATION_PUBLISHING.md` |
+| Campaign system | `lib/publishing/`, `content/campaign/` | `docs/CAMPAIGN_90_DAY.md` |
+| Client dashboard | `app/dashboard/`, `lib/dashboard/`, `supabase/ftd-portal/` | `docs/CLIENT_DASHBOARD.md`, `docs/SUPPORT_DESK.md` |
+| Asset rights | — | `ASSET_MANIFEST.md` |
 
 Copy `.env.example` to `.env.local` only after dedicated College Boy Clerk and Supabase resources exist. Never reuse another client or Fee The Developer service-role credential.
 
 ## Vercel deployment handoff
 
-Current status: **READY FOR VERCEL HANDOFF — NOT DEPLOYED**.
+Current status: **IN CLIENT REVIEW — NOT DEPLOYED FROM THIS BRANCH.** A passing build is not launch approval.
 
 The repository is a standard Next.js deployment. Vercel should use the repository root with:
 
@@ -25,7 +48,7 @@ The repository is a standard Next.js deployment. Vercel should use the repositor
 - Node.js: `20.x` or newer; `package.json` requires `>=20.9`
 - Output: automatic Next.js output; do not set a static output directory
 
-Before linking or deploying, verify the intended Vercel team and project. This checkout currently has no `.vercel` project link, and the active Git branch is `feat/collegeboy-site-rebuild`; Vercel will not receive these local changes until the reviewed branch is pushed and selected by the project.
+Before linking or deploying, verify the intended Vercel team and project. This checkout currently has no `.vercel` project link, and the review branch is `claude/college-boy-cheesesteaks-review-0g58yn` (base `feat/collegeboy-site-rebuild`); Vercel will not receive these local changes until the reviewed branch is pushed and selected by the project.
 
 ```sh
 vercel whoami
@@ -60,7 +83,7 @@ If Clerk variables are absent, public pages remain available and protected accou
 - [ ] `/`, `/film`, `/opening`, `/subscribe`, `/account`, `/sign-in`, and `/sign-up` respond as expected.
 - [ ] `/projects-2` redirects to `/#menu`; `/contact-8` redirects to `/#catering`.
 - [ ] Generated menu imagery and all existing media return successfully; no missing placeholder `.webp` references remain.
-- [ ] Pickup, Uber Eats, DoorDash, Instagram, and catering links point to the approved destinations.
+- [ ] Uber Eats and DoorDash are marked verified in `lib/order-options.ts` only after Josette confirms them live; Instagram and catering links point to the approved destinations. No Square pickup link.
 - [ ] No secrets appear in build logs, repository files, or client bundles.
 - [ ] Preview remains `noindex`; no production DNS or domain cutover occurs during preview review.
 - [ ] Installed on one iPhone and one Android handset: home-screen icon and name are the College Boy mark, not a screenshot.
@@ -92,29 +115,9 @@ Legacy route redirects are implemented as `/projects-2` → `/#menu` and `/conta
 
 ## Schedule ownership
 
-The earlier static schedule source is preserved under `legacy-static/data/schedule.json`. A production schedule backend has not been selected. The designated College Boy schedule owner must:
+`content/schedule.json` is the only schedule source. The website, draft captions and the dashboard queue all read it through `lib/schedule.ts`. Field reference, rules, corrections and rollback: `docs/LOCATION_PUBLISHING.md`.
 
-1. Use ISO 8601 timestamps with offsets for `startsAt` and `endsAt`.
-2. Include `stopName`, `streetAddress`, `status`, and the IANA `timeZone` on every stop.
-3. Set `status` to `confirmed` only after the stop is verified.
-4. Set canceled stops to `canceled`; do not delete them until the date has passed.
-5. Update `lastUpdatedAt` and `updatedBy` with every change.
-6. Run `npm run build` before submitting the update.
-
-The page selects the earliest non-expired confirmed stop. If none exists or schedule loading fails, it displays a no-confirmed-stop state and directs customers to official Instagram.
-
-Example entry:
-
-```json
-{
-  "stopName": "Example only - do not publish",
-  "streetAddress": "123 Example Street, Los Angeles, CA",
-  "startsAt": "2026-10-01T17:00:00-07:00",
-  "endsAt": "2026-10-01T21:00:00-07:00",
-  "status": "canceled",
-  "timeZone": "America/Los_Angeles"
-}
-```
+The site shows a stop only when it is `confirmed`, has an `approvedBy`, has not ended, starts within 14 days, and the file's `lastUpdatedAt` is under 14 days old. Otherwise it shows “Location not confirmed” and points to Instagram. It never falls back to an old stop.
 
 ## Review controls
 

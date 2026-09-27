@@ -4,7 +4,7 @@ Everything in this document is about the phone experience: how the site behaves 
 
 ## Home-screen identity
 
-`app/manifest.ts` is the web manifest. It declares `display: standalone`, the ink theme colour `#130f0f`, the cream launch background `#f8efdf`, three icons, and shortcuts to pickup, the menu, and the film. Android uses it for installation and the adaptive icon; iOS pairs it with `appleWebApp` in `app/layout.tsx` for the home-screen name and a translucent status bar.
+`app/manifest.ts` is the web manifest. It declares `display: standalone`, the ink theme colour `#130f0f`, the cream launch background `#f8efdf`, three icons, and shortcuts to Find the truck, Order, the menu, and the film. Android uses it for installation and the adaptive icon; iOS pairs it with `appleWebApp` in `app/layout.tsx` for the home-screen name and a translucent status bar.
 
 Icons are generated, not hand-drawn:
 

@@ -6,6 +6,7 @@ import { siteUrl } from '@/lib/site-config';
 import './globals.css';
 import './about.css';
 import './truck-brand.css';
+import './review-updates.css';
 
 const display = Anton({ subsets: ['latin'], weight: '400', variable: '--font-display' });
 const utility = Barlow_Condensed({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-utility' });
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: siteUrl,
   applicationName: 'College Boy',
   title: { default: 'College Boy Cheesesteaks', template: '%s | College Boy Cheesesteaks' },
-  description: 'Real Philly cheesesteaks in Los Angeles. Find the truck, order pickup or delivery, and ask about catering.',
+  description: 'Real Philly cheesesteaks in Los Angeles. Find the truck, see the menu, order, and ask about catering.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',

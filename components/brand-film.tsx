@@ -155,7 +155,7 @@ export function BrandFilm() {
       {open && <div className="film-dialog-body">
         <header><h2 id="film-dialog-title">Inside College Boy</h2><button autoFocus type="button" onClick={() => setOpen(false)} aria-label="Close film">×</button></header>
         <FilmPlayer />
-        <div className="film-actions"><a className="button button-red" href="https://collegeboy-cheesesteaks.square.site/" target="_blank" rel="noreferrer">Order pickup ↗</a><Link className="text-link" href="/#catering" onClick={() => setOpen(false)}>Bring the truck to your event</Link></div>
+        <div className="film-actions"><Link className="button button-red" href="/#order" onClick={() => setOpen(false)}>Order</Link><Link className="text-link" href="/#catering" onClick={() => setOpen(false)}>Bring the truck to your event</Link></div>
       </div>}
     </dialog>
   </>;

@@ -1,0 +1,13 @@
+.dash{min-height:100svh;background:var(--cream);padding:clamp(2rem,5vw,5rem) clamp(1rem,5vw,5rem)}
+.dash h1{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,6vw,5rem);line-height:.95;margin:.6rem 0 1rem}
+.dash .eyebrow{display:block;margin-top:1.5rem;color:var(--red-dark)}
+.dash-note,.dash-empty{color:var(--muted)}
+.dash-tenants{list-style:none;padding:0;display:grid;gap:.8rem}
+.dash-tenants a{display:block;background:#fff;border:2px solid var(--ink);padding:1rem 1.2rem;font-family:var(--utility);font-weight:700;text-transform:uppercase}
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,34rem),1fr));gap:1.2rem;margin-top:2rem}
+.dash-panel{background:#fff;border:1px solid var(--line);padding:1.2rem;min-width:0}
+.dash-panel h2{font-family:var(--utility);font-size:1.1rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.8rem}
+.dash-scroll{overflow-x:auto}
+.dash table{width:100%;border-collapse:collapse;font-size:.9rem}
+.dash th,.dash td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+.dash th{font-family:var(--utility);text-transform:uppercase;letter-spacing:.05em;font-size:.78rem}

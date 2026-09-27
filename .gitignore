@@ -12,3 +12,6 @@ output/college-boy-opening/
 
 .vercel
 .env*
+
+test-results/
+playwright-report/

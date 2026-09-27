@@ -1,0 +1,28 @@
+{
+  "$comment": "Reusable 12-week plan in three 4-week cycles. No dates or events: stops come from content/schedule.json, events only from College Boy. Copy per cycle, then fill packages from approved originals.",
+  "pillars": {
+    "food-grill": { "goal": "Show the real food accurately: plain rolls, mushroom cheesesteak, bottled lemonade.", "cta": "See the menu", "destination": "/#menu" },
+    "todays-stop": { "goal": "Tell people exactly where the truck is. Generated from the schedule; one post per confirmed stop.", "cta": "Find the truck", "destination": "/#find" },
+    "event-catering": { "goal": "Book events and catering.", "cta": "Ask about catering", "destination": "/#catering" },
+    "kevin-legacy": { "goal": "Share the family story in the family's words. Blocked until written family approval.", "cta": "Read the story", "destination": "/#story", "gate": "familyApproval" }
+  },
+  "weeklyCadence": {
+    "todays-stop": "Every confirmed stop: website update + draft captions for approved channels (manual publishing).",
+    "food-grill": 2,
+    "event-catering": 1,
+    "kevin-legacy": "At most one per cycle, only with written family approval."
+  },
+  "cycles": [
+    { "cycle": 1, "weeks": [1, 2, 3, 4], "theme": "Find us, know the food",
+      "focus": ["Establish the schedule habit: every confirmed stop posted from the canonical schedule", "Mushroom cheesesteak as the lead food story", "Introduce the new site paths: Find, Menu, Order, Catering, Story"],
+      "kpis": ["Share of stops posted before service starts", "Website /#find visits", "Instagram profile link taps"] },
+    { "cycle": 2, "weeks": [5, 6, 7, 8], "theme": "Bring the truck",
+      "focus": ["Catering and event inquiries", "Behind-the-grill process content from approved originals", "Repeat the strongest cycle-1 food story in a new format, not the same graphic"],
+      "kpis": ["Catering inquiries received", "Inquiry-to-booking rate (owner-reported)", "Saves and shares on food posts"] },
+    { "cycle": 3, "weeks": [9, 10, 11, 12], "theme": "Why College Boy",
+      "focus": ["Family story, only if the family has approved final copy", "Mailing list sign-ups once the subscriber database is live", "Review and reset: keep what worked, drop what did not"],
+      "kpis": ["Mailing-list sign-ups", "Returning visitors", "Owner time spent per week on posting"] }
+  ],
+  "packageChecklist": ["Approved original with source/rights record", "Channel-specific caption per variant (never identical)", "Aspect ratio per channel", "Alt text per variant", "CTA and approved destination link", "Owner approval recorded", "Legacy: written family approval recorded"],
+  "aspectRatios": { "instagram-feed": ["4:5", "1:1"], "instagram-story": ["9:16"], "facebook-page": ["4:5", "1.91:1"], "google-business-profile": ["4:3"] }
+}

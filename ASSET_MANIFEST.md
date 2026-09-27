@@ -1,5 +1,31 @@
 # Asset permission manifest
 
+> **Repository visibility:** this repository is **public**. Anything committed here is published. Do not commit an asset until its rights and subject consent are recorded below.
+
+## Rights register — September 27, 2026 (current site)
+
+| Asset | Placement | Source | Rights status | Subject approval |
+| --- | --- | --- | --- | --- |
+| `college-boy-cheesesteak-feast-enhanced.png` | Hero, order panel, app icon source | AI-enhanced from a College Boy Instagram export | Reference until College Boy confirms reuse | No people |
+| `menu-cheesesteak.webp` | Menu card 01 | AI-styled from the supplied cheesesteak photo | Pending College Boy confirmation | No people |
+| `menu-chicken.webp` | Menu card 03 | AI-styled from `spicy-chicken-cheesesteak.png` (College Boy post, supplied via Dropbox) | Pending College Boy confirmation | No people |
+| `illustrations/mushroom-cheesesteak.svg` | Menu card 02 | Drawn for this build (Fee The Developer) | Fee The Developer original; replace with Josette's photo | No people |
+| `illustrations/fries-bottled-lemonade.svg` | Menu card 04 | Drawn for this build | Fee The Developer original; replace with Josette's photo | No people |
+| `illustrations/truck-scene.svg` | Catering | Drawn for this build | Fee The Developer original | Two stylized, unnamed figures; not likenesses. Review before public release |
+| `illustrations/graduation-cap-2015.svg` | Story | Drawn for this build at Josette's request | Fee The Developer original | Decorative; implies Kevin's 2015 graduation — family sign-off with the story |
+| `college-boy-inspiration-silhouette.png` | Story | AI-edited from the supplied headshot of Kevin | Supplied by King Fee for demo | **Family approval of the edited treatment pending** |
+| `college-boy-family-owners-enhanced.png` | Story | AI-enhanced from supplied family photo | Supplied by King Fee for demo | **Each pictured person's consent pending** |
+| `college-boy-film-*.mp4`, `college-boy-film-poster.jpg` | Film | Supplied `College Boy Media.MP4` | Supplied for local build | **Family footage and third-party creator footage (poster shows “grubbingwithmagno”) need permission** |
+| `college-boy-truck-logo-v2.png` | Header, icons | Canva interpretation of the truck | Local build; trademark review not done | No people |
+| `college-boy-opening*.mp4/png/jpg` | Opening film | Generated from the truck photo | Local build | No people |
+
+Retired September 27 (Josette): `college-boy-menu-chicken-veggie.png` (seeded rolls), `college-boy-menu-fries-drinks.png` (lemonade in a cup), `college-boy-menu-cheesesteak.png` (fully generated). Deleted from the working tree; they remain in Git history.
+
+Unused files still in the tree (not shown on the site): `college-boy-cheesesteak-feast-source.jpg`, `college-boy-opening-headon.png`, `college-boy-truck-showtime.png` (its truck wrap shows the out-of-service phone number), `menu-fries.webp`, `menu-takeaway.webp`, `spicy-chicken-cheesesteak.png`.
+
+## Earlier records
+
+
 ## Truck identity — September 25, 2026
 
 ### Cinematic opening

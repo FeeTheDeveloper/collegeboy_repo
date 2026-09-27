@@ -2,10 +2,11 @@
 export const navLinks = [
   { href: '/#find', label: 'Find the truck' },
   { href: '/#menu', label: 'Menu' },
-  { href: '/#about', label: 'About' },
+  { href: '/#order', label: 'Order' },
   { href: '/#catering', label: 'Catering' },
-  { href: '/subscribe', label: 'Join the list' }
+  { href: '/#story', label: 'Story' }
 ] as const;
 
-export const orderUrl = 'https://collegeboy-cheesesteaks.square.site/';
+/** Ordering happens on the verified provider listings in the Order section, not on this site. */
+export const orderHref = '/#order';
 export const instagramUrl = 'https://www.instagram.com/collegeboycheesesteaks/';

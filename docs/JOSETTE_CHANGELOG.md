@@ -1,0 +1,18 @@
+# Josette's preview review: corrections log
+
+Source: Josette (“Boss Lady”) review of the College Boy preview, relayed by King Fee. Branch `claude/college-boy-cheesesteaks-review-0g58yn`.
+
+“Approved” means Josette has seen the final result and said yes. Nothing here is approved yet; every row is **awaiting Josette's review**.
+
+| # | Direction | Implementation | Where | Josette approved |
+| --- | --- | --- | --- | --- |
+| 1 | No cheesesteak visuals with seeds on the roll | Removed the seeded-roll chicken/veggie image (and the fully generated cheesesteak card) from the site and from `public/media`. Remaining roll imagery is derived from College Boy's own unseeded photos or drawn as plain rolls. A test fails if a retired image is referenced again. | `components/menu-showcase.tsx`, `tests/unit/visual-requirements.test.ts` | Pending |
+| 2 | Feature a mushroom cheesesteak accurately | New “Mushroom cheesesteak · A top seller” card. No approved photo exists, so it is a labelled illustration (steak, sliced mushrooms, melted cheese, plain roll). No other ingredients or prices stated. | `public/media/illustrations/mushroom-cheesesteak.svg` | Pending — **needs a real photo** |
+| 3 | Lemonade in a bottle, not a cup | Cup-lemonade image removed. “Fries & lemonade” card shows a sealed bottle (blank label) as a labelled illustration. Ticker says “bottled lemonade”. | `public/media/illustrations/fries-bottled-lemonade.svg` | Pending — **needs a real bottle photo** |
+| 4 | Keep “Real Philly … wherever we roll”; say “cheesesteak” | Hero: “Real Philly cheesesteaks. Wherever we roll.” Footer and truck art use the same line. Three wording options are listed for her pick. | `lib/content/business.ts` → `brandLine` | Pending — **choose final wording** |
+| 5 | Keep the respectful Kevin section and the photo she liked; story from Josette | Section and portrait kept unchanged. No names or memorial copy. Visible “Draft · Story pending family copy and approval” marker until `story.familyApprovedBy/At` and approved paragraphs are filled in. | `app/page.tsx` (#story), `lib/content/business.ts` → `story` | Pending — **family copy + sign-off** |
+| 6 | Designed graduation cap: blue tassel, “2015” | No designed cap illustration existed (the portrait's red tassel is part of the photo derivative and was not altered). Added a separate decorative cap illustration with a blue tassel and a 2015 charm, captioned “Illustration”. | `public/media/illustrations/graduation-cap-2015.svg` | Pending |
+| 7 | Remove Square pickup; keep only verified links; Grubhub not active | Square removed everywhere (header, mobile menu, hero, film dialog, /film, app shortcuts). Uber Eats and DoorDash are shown as “link being confirmed” with no clickable link until verified (Sept 25 check: Uber Eats all items out of stock, DoorDash inactive; this session could not reach either site). Grubhub not listed. | `lib/order-options.ts`, `components/delivery-tabs.tsx` | Pending — **confirm DoorDash and Uber Eats are live** |
+| 8 | Audit links, CTAs, images, mobile, contact details | Automated checks: every link resolves or is on an allowlist, every image loads with alt text, no overflow 320–1440px, mobile menu, WCAG A/AA (two contrast bugs fixed). No phone number, street address or guessed email is published; only the catering address supplied for College Boy is shown. | `tests/e2e/site.spec.ts` | Pending |
+
+Also added for her review: the two-person truck scene (owner-lead woman at the window, Black male worker at the grill) in the catering section — a stylized illustration, not a likeness. Review image: `docs/review/truck-scene-review.webp`.

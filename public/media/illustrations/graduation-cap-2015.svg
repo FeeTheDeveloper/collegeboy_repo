@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" role="img" aria-labelledby="t d" data-illustration="graduation-cap" data-tassel="blue" data-year="2015">
+  <title id="t">Illustration: graduation cap, 2015</title>
+  <desc id="d">Decorative illustration, not a photograph: a black graduation cap with a blue tassel and a 2015 year charm.</desc>
+  <path d="M120 30 226 74 120 118 14 74z" fill="#130f0f" stroke="#fffdf8" stroke-width="3"/>
+  <path d="M62 94v40q58 30 116 0V94l-58 24z" fill="#211919" stroke="#fffdf8" stroke-width="3"/>
+  <circle cx="120" cy="74" r="6" fill="#1e4fd8"/>
+  <path d="M120 74 190 96v56" stroke="#1e4fd8" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M182 150h16l6 30h-28z" fill="#1e4fd8"/>
+  <rect x="160" y="112" width="60" height="26" rx="4" fill="#ffcc45" stroke="#130f0f" stroke-width="2"/>
+  <text x="190" y="131" text-anchor="middle" font-family="Anton,Impact,'Arial Black',sans-serif" font-size="18" fill="#130f0f">2015</text>
+</svg>

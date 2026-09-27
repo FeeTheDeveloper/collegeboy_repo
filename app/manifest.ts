@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     id: '/',
     name: 'College Boy Cheesesteaks',
     short_name: 'College Boy',
-    description: 'Real Philly cheesesteaks in Los Angeles. Find the truck, order pickup or delivery, and ask about catering.',
+    description: 'Real Philly cheesesteaks in Los Angeles. Find the truck, see the menu, order, and ask about catering.',
     start_url: '/',
     scope: '/',
     display: 'standalone',
@@ -21,7 +21,8 @@ export default function manifest(): MetadataRoute.Manifest {
       { src: '/icons/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
     ],
     shortcuts: [
-      { name: 'Order pickup', url: '/#order-options' },
+      { name: 'Find the truck', url: '/#find' },
+      { name: 'Order', url: '/#order' },
       { name: 'See the menu', url: '/#menu' },
       { name: 'Watch the film', url: '/film' }
     ]

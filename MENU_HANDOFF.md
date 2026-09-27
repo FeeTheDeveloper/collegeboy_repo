@@ -1,12 +1,14 @@
 # Menu imagery and delivery handoff
 
+> **September 27 update:** the seeded-roll and cup-lemonade cards were retired at Josette's direction. The current menu is described in `docs/JOSETTE_CHANGELOG.md`; the prompts below are historical.
+
 Four source-inspired AI menu previews are installed in `public/media/`: `menu-cheesesteak.webp`, `menu-chicken.webp`, `menu-fries.webp`, and `menu-takeaway.webp`. Each is 1000 × 1000 WebP (approximately 182–225 KiB). Originals and other existing artwork remain untouched.
 
 The imagery is conceptual styling, not proof of exact portions or current ingredients. A visible preview disclosure accompanies the cards. The chicken photo represents that category without inventing a vegetarian dish; fries represent the sides category without inventing a drink.
 
 ## Ordering
 
-`components/delivery-tabs.tsx` implements Pickup, Uber Eats and DoorDash with roving keyboard focus, arrow/Home/End navigation, associated panels and explicit external checkout links. Existing provider destinations are preserved. Uber Eats returned all items out of stock and DoorDash returned inactive on the September 25, 2026 check; these are not live app statuses. The interface says check availability and never fabricates times, fees or prices. Square checkout availability was not confirmed.
+`components/delivery-tabs.tsx` implements Uber Eats and DoorDash (the Square Pickup tab was removed on September 27 at Josette's direction; links render only once verified — see `lib/order-options.ts`) with roving keyboard focus, arrow/Home/End navigation, associated panels and explicit external checkout links. Existing provider destinations are preserved. Uber Eats returned all items out of stock and DoorDash returned inactive on the September 25, 2026 check; these are not live app statuses. The interface says check availability and never fabricates times, fees or prices. Square checkout availability was not confirmed.
 
 Mobbin discovery returned a paid-plan requirement; no Mobbin reference was used. Fee The Developer and Frontend Design Premium guided source tracking and the existing visual system. No publication was performed.
 

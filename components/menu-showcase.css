@@ -17,7 +17,7 @@
 .delivery-heading .eyebrow{color:var(--butter)}
 .delivery-heading h3{font-family:var(--display);font-size:clamp(2.3rem,4vw,4.2rem);font-weight:400;line-height:1.06;margin:.7rem 0 0}
 .delivery-heading>p{font-size:.9rem;line-height:1.6;color:#c2b7b0;margin:0;text-align:right}
-.delivery-tablist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--menu-rule);border-bottom:0}
+.delivery-tablist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--menu-rule);border-bottom:0}
 .delivery-tab{--provider-accent:var(--red);min-height:92px;min-width:0;border:0;border-right:1px solid var(--menu-rule);border-bottom:4px solid transparent;background:var(--ink);color:var(--cream);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.85rem;cursor:pointer;text-align:left;transition:background .18s,border-color .18s}
 .delivery-tab:last-child{border-right:0}
 .delivery-uber{--provider-accent:var(--delivery-uber)}

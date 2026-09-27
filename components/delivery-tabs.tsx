@@ -2,12 +2,12 @@
 
 import { useRef, useState, type KeyboardEvent } from 'react';
 import Image from 'next/image';
-import { orderOptions } from '@/lib/order-options';
+import { isLive, orderOptions } from '@/lib/order-options';
+import { instagramUrl } from '@/lib/nav-links';
 
-function DeliverySymbol({ pickup = false }: { pickup?: boolean }) {
+function DeliverySymbol() {
   return <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-    {pickup ? <><path d="M3 8h14v12H3zM17 12h4l4 5v3h-8M18 12v5h7" /><circle cx="8" cy="21" r="2.5" fill="var(--ink)" /><circle cx="21" cy="21" r="2.5" fill="var(--ink)" /></>
-      : <><path d="M6 9h16l2 15H4L6 9Z" /><path d="M10 10V7a4 4 0 0 1 8 0v3M10 17h8M15 14l3 3-3 3" /></>}
+    <path d="M6 9h16l2 15H4L6 9Z" /><path d="M10 10V7a4 4 0 0 1 8 0v3M10 17h8M15 14l3 3-3 3" />
   </svg>;
 }
 
@@ -25,32 +25,39 @@ export function DeliveryTabs() {
     buttons.current[next]?.focus();
   }
 
-  return <div className="delivery-selector" id="order-options">
-    <div className="delivery-heading"><div><span className="eyebrow">YOUR NEXT MOVE</span><h3>Come get your jawn.</h3></div><p>Pickup at the truck.<br /> Or check a delivery partner.</p></div>
-    <div className="delivery-tablist" role="tablist" aria-label="Pickup and delivery options">
+  return <div className="delivery-selector" id="order">
+    <div className="delivery-heading"><div><span className="eyebrow">ORDER</span><h3>Come get your cheesesteak.</h3></div><p>Order at the truck,<br /> or through a delivery partner.</p></div>
+    <div className="delivery-tablist" role="tablist" aria-label="Delivery partners">
       {orderOptions.map((option, index) => <button key={option.id} type="button" role="tab"
         id={`order-tab-${option.id}`} aria-controls={`order-panel-${option.id}`} aria-selected={selected === index}
         tabIndex={selected === index ? 0 : -1} className={`delivery-tab delivery-${option.id}`}
         ref={element => { buttons.current[index] = element; }}
         onClick={() => setSelected(index)} onKeyDown={event => navigate(event, index)}>
-        <DeliverySymbol pickup={option.id === 'pickup'} />
+        <DeliverySymbol />
         <span className="delivery-tab-name">{option.id === 'uber' ? <>Uber <em>Eats</em></> : option.name}</span>
-        <span className="delivery-tab-type">{option.id === 'pickup' ? 'PICKUP' : 'DELIVERY'}</span>
+        <span className="delivery-tab-type">{isLive(option) ? 'DELIVERY' : 'CONFIRMING'}</span>
       </button>)}
     </div>
     {orderOptions.map((option, index) => <section key={option.id} role="tabpanel" tabIndex={0}
       id={`order-panel-${option.id}`} aria-labelledby={`order-tab-${option.id}`} hidden={selected !== index}
       className={`delivery-panel delivery-${option.id}`}>
-      <div className="delivery-panel-copy"><span className="delivery-kicker">{option.label}</span>
-        <h4>{option.title}</h4><p>{option.description}</p>
-        <ol className="delivery-steps">{option.steps.map(step => <li key={step}>{step}</li>)}</ol>
-        <a className="delivery-action" href={option.href} target="_blank" rel="noopener noreferrer">{option.action}<span aria-hidden="true">↗</span><span className="menu-visually-hidden"> (opens in a new tab)</span></a>
-        <small>{option.detail}</small>
+      <div className="delivery-panel-copy"><span className="delivery-kicker">DELIVERY PARTNER</span>
+        <h4>{option.title}</h4>
+        {isLive(option) ? <>
+          <p>{option.description}</p>
+          <ol className="delivery-steps">{option.steps.map(step => <li key={step}>{step}</li>)}</ol>
+          <a className="delivery-action" href={option.href} target="_blank" rel="noopener noreferrer" data-order-provider={option.id}>{option.action}<span aria-hidden="true">↗</span><span className="menu-visually-hidden"> (opens in a new tab)</span></a>
+          <small>Availability, delivery fees and arrival times are set by {option.name}.</small>
+        </> : <>
+          <p>College Boy is confirming its {option.name} listing. The link will appear here once it is verified as live.</p>
+          <span className="delivery-action delivery-action-pending" aria-disabled="true" data-order-pending={option.id}>{option.name} link being confirmed</span>
+          <small>Until then, order at the truck — <a className="text-link" href="#find">find today’s stop</a> or check <a className="text-link" href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram ↗</a>.</small>
+        </>}
       </div>
       <div className="delivery-art"><Image src="/media/college-boy-cheesesteak-feast-enhanced.png" alt="Cheesesteak halves and fries served in red-and-white checkered paper" fill sizes="(max-width: 720px) 100vw, 40vw" />
-        <div className="delivery-receipt"><span>COLLEGE BOY</span><strong>{option.id === 'pickup' ? 'PICKUP' : 'DELIVERY'}</strong><span>{option.provider}</span></div>
+        <div className="delivery-receipt"><span>COLLEGE BOY</span><strong>DELIVERY</strong><span>{option.name}</span></div>
       </div>
     </section>)}
-    <p className="delivery-disclaimer">You’ll finish your order on the provider’s website. Delivery listings may be unavailable; check with the provider before ordering.</p>
+    <p className="delivery-disclaimer">Orders placed through a delivery partner are completed on that partner’s website. This site does not take payment.</p>
   </div>;
 }

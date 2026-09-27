@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { instagramUrl, navLinks, orderUrl } from '@/lib/nav-links';
+import { instagramUrl, navLinks, orderHref } from '@/lib/nav-links';
 import './mobile-nav.css';
 
 /**
@@ -50,10 +50,11 @@ export function MobileNav({ auth }: { auth?: ReactNode }) {
         </div>
         <nav aria-label="Primary navigation">
           {navLinks.map(link => <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}</Link>)}
+          <Link href="/subscribe" onClick={() => setOpen(false)}>Join the list</Link>
         </nav>
         <div className="mobile-nav-actions">
-          <a className="button button-red" href={orderUrl} target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>Order pickup ↗</a>
-          <a href={instagramUrl} target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>Instagram ↗</a>
+          <Link className="button button-red" href={orderHref} onClick={() => setOpen(false)}>Order</Link>
+          <a href={instagramUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Instagram ↗</a>
           {auth}
         </div>
       </div>}

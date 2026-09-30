@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BrandFilm } from '@/components/brand-film';
+import { BrandStory } from '@/components/brand-story';
 import { FindTheTruck } from '@/components/find-the-truck';
 import { FirstVisitInvite } from '@/components/first-visit-invite';
 import { MenuShowcase } from '@/components/menu-showcase';
@@ -29,9 +30,10 @@ export default function Home() {
         <h1 className="hero-brand">Real Philly cheesesteaks.<br /><em>Wherever we roll.</em></h1>
         <p>Chopped steak and melted cheese on a plain hoagie roll, served from the red truck by real Philadelphians. Find the truck, see the menu, or order through a delivery partner.</p>
         <div className="hero-actions"><a className="button button-cream" href="#find">Find the truck</a><a className="button button-outline" href="#menu">See the menu</a></div></div>
-        <div className="hero-photo"><Image src="/media/college-boy-cheesesteak-feast-enhanced.png" alt="Two College Boy cheesesteak halves in a plain roll with fries, served in red-and-white checkered paper" fill priority sizes="(max-width: 760px) 100vw, 52vw" /></div>
-        <div className="hero-ticket"><strong>CHEESESTEAK + FRIES</strong><span>Fresh off the grill</span></div></section>
-      <section className="ticker" aria-label="College Boy menu and services"><div>CHEESESTEAKS ✦ MUSHROOM CHEESESTEAKS ✦ FRIES ✦ BOTTLED LEMONADE ✦ DELIVERY ✦ CATERING ✦ CHEESESTEAKS ✦ MUSHROOM CHEESESTEAKS ✦ FRIES ✦ BOTTLED LEMONADE ✦ DELIVERY ✦ CATERING ✦</div></section>
+        <div className="hero-photo"><Image src="/media/menu-masters.webp" alt="College Boy Master's cheesesteak with chopped steak, melted cheese and grilled onions in a plain roll" fill priority sizes="(max-width: 760px) 100vw, 52vw" /></div>
+        <div className="hero-ticket"><strong>MASTER&apos;S CHEESESTEAK</strong><span>From the College Boy menu</span></div></section>
+      <section className="ticker" aria-label="College Boy menu and services"><div>ALUMNI ✦ BACHELOR ✦ MASTER&apos;S ✦ DOCTORATE ✦ HOAGIE ✦ CHEESE FRIES ✦ DELIVERY ✦ CATERING ✦ ALUMNI ✦ BACHELOR ✦ MASTER&apos;S ✦ DOCTORATE ✦ HOAGIE ✦ CHEESE FRIES ✦ DELIVERY ✦ CATERING ✦</div></section>
+      <BrandStory />
       <FindTheTruck schedule={schedule} renderedAt={renderClock()} />
       <MenuShowcase />
       <ReviewMarquee />
@@ -41,7 +43,7 @@ export default function Home() {
         {cateringEmail ? <a className="button button-cream" href={`mailto:${cateringEmail}?subject=College%20Boy%20catering%20inquiry`}>Ask about catering ↗</a> : null}
         <small>Catering packages and pricing are quoted by College Boy directly.</small></div>
         <div className="catering-truck"><TruckScene /></div></section>
-      <section className="about" id="story" aria-labelledby="about-title">
+      <section className="about" id="inspiration" aria-labelledby="about-title">
         <div className="about-inspiration">
           <Image src="/media/college-boy-inspiration-silhouette.png" alt="A stylized graduation portrait representing the inspiration behind College Boy Cheesesteaks" fill sizes="100vw" />
           <div className="about-inspiration-copy"><span className="eyebrow">THE INSPIRATION</span>

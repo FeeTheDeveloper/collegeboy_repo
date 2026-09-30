@@ -90,12 +90,12 @@ for (const width of [320, 390, 768, 1440]) {
   });
 }
 
-test('mobile menu exposes the five customer paths', async ({ page }) => {
+test('mobile menu exposes the customer paths and careers', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
   await page.getByRole('button', { name: 'Menu' }).click();
   const sheet = page.getByRole('dialog', { name: 'Site menu' });
-  for (const label of ['Find the truck', 'Menu', 'Order', 'Catering', 'Story']) await expect(sheet.getByRole('navigation').getByRole('link', { name: label, exact: true })).toBeVisible();
+  for (const label of ['Find the truck', 'Menu', 'Order', 'Catering', 'Story', 'Careers']) await expect(sheet.getByRole('navigation').getByRole('link', { name: label, exact: true })).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(sheet).toBeHidden();
 });

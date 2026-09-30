@@ -1,5 +1,7 @@
 # Josette's preview review: corrections log
 
+> **September 30 source update:** The user supplied six official item screenshots and original-site copy. The current menu now shows those six item photos and descriptions; the earlier mushroom, chicken and bottled-lemonade placeholder decisions below are historical review notes. The family-inspiration copy still awaits family approval.
+
 Source: Josette (“Boss Lady”) review of the College Boy preview, relayed by King Fee. Branch `claude/college-boy-cheesesteaks-review-0g58yn`.
 
 “Approved” means Josette has seen the final result and said yes. Nothing here is approved yet; every row is **awaiting Josette's review**.

@@ -1,0 +1,17 @@
+.brand-story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--cream);color:var(--ink);border-block:2px solid var(--ink)}
+.brand-story-lead{background:var(--red);color:var(--white);padding:clamp(2rem,6vw,6rem);display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.brand-story-lead .eyebrow{color:var(--butter)}
+.brand-story-lead h2{font-family:var(--display);font-size:clamp(4.1rem,8vw,9rem);font-weight:400;line-height:.9;margin:clamp(2rem,4vw,4rem) 0 1.5rem;text-transform:uppercase}
+.brand-story-lead h2 em{font-style:normal;color:var(--butter)}
+.brand-story-lead>p{font-family:var(--utility);font-size:clamp(1.4rem,2.4vw,2.5rem);font-weight:700;line-height:1.12;text-transform:uppercase;max-width:22ch;margin:0}
+.brand-story-lead img{width:min(100%,600px);height:auto;margin-top:auto;padding-top:3rem;filter:drop-shadow(0 18px 0 rgba(19,15,15,.16))}
+.brand-story-detail{padding:clamp(2rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center}
+.brand-story-intro{font-size:clamp(1.2rem,2vw,1.9rem);font-weight:750;line-height:1.35;max-width:34ch}
+.brand-story-timeline{list-style:none;margin:clamp(1rem,3vw,3rem) 0;padding:0;border-top:1px solid var(--line)}
+.brand-story-timeline li{display:grid;grid-template-columns:5rem 1fr;gap:1.2rem;border-bottom:1px solid var(--line);padding:1.2rem 0}
+.brand-story-timeline strong{font-family:var(--display);font-size:1.8rem;color:var(--red);font-weight:400}
+.brand-story-timeline p{margin:0;line-height:1.55;max-width:45ch}
+.brand-story-close{font-family:var(--display);font-size:clamp(2rem,3.2vw,3.7rem);font-weight:400;line-height:1.08;margin:0 0 1.5rem;max-width:18ch}
+.brand-story-signoff{font-family:var(--utility);font-size:1.2rem;font-weight:700;letter-spacing:.1em;color:var(--red)}
+@media(max-width:800px){.brand-story{grid-template-columns:1fr}.brand-story-lead img{max-width:460px}}
+@media(max-width:440px){.brand-story-lead h2{font-size:clamp(3.2rem,16vw,5rem)}.brand-story-timeline li{grid-template-columns:1fr;gap:.15rem}}

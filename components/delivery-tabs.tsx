@@ -54,7 +54,7 @@ export function DeliveryTabs() {
           <small>Until then, order at the truck — <a className="text-link" href="#find">find today’s stop</a> or check <a className="text-link" href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram ↗</a>.</small>
         </>}
       </div>
-      <div className="delivery-art"><Image src="/media/college-boy-cheesesteak-feast-enhanced.png" alt="Cheesesteak halves and fries served in red-and-white checkered paper" fill sizes="(max-width: 720px) 100vw, 40vw" />
+      <div className="delivery-art"><Image src="/media/menu-bachelor.webp" alt="College Boy Bachelor cheesesteak with chopped steak, melted cheese and grilled onions" fill sizes="(max-width: 720px) 100vw, 40vw" />
         <div className="delivery-receipt"><span>COLLEGE BOY</span><strong>DELIVERY</strong><span>{option.name}</span></div>
       </div>
     </section>)}

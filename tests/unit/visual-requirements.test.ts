@@ -36,12 +36,12 @@ describe('food accuracy (Josette)', () => {
     }
   });
 
-  it('features a mushroom cheesesteak and bottled lemonade, labelled as illustrations', () => {
-    const mushroom = menuCards.find(card => /mushroom/i.test(card.title));
-    const lemonade = menuCards.find(card => /lemonade/i.test(card.title));
-    expect(mushroom?.kind).toBe('Illustration');
-    expect(readFileSync(`public${lemonade!.image}`, 'utf8')).toContain('data-lemonade="bottle"');
-    expect(readFileSync(`public${mushroom!.image}`, 'utf8')).toContain('data-roll="plain"');
+  it('shows every supplied official item with a real local image and description', () => {
+    expect(menuCards.map(card => card.title)).toEqual(['Alumni', 'Bachelor', "Master's", 'Doctorate', 'Hoagie', 'Cheese Fries']);
+    for (const card of menuCards) {
+      expect(existsSync(`public${card.image}`)).toBe(true);
+      expect(card.copy.length).toBeGreaterThan(20);
+    }
     expect(menuCards.every(card => card.alt.length > 20)).toBe(true);
   });
 
@@ -72,17 +72,18 @@ describe('ordering and contact details', () => {
     for (const option of orderOptions) expect(isLive(option)).toBe(Boolean(option.verifiedAt && option.verifiedBy && option.status === 'verified'));
   });
 
-  it('publishes no phone number, street address or unconfirmed email', () => {
-    expect(business.phone.value).toBeNull();
-    expect(business.mailingAddress.value).toBeNull();
-    for (const [file, text] of shippedSource) {
-      expect(text, file).not.toMatch(/tel:|833-?310|JAWN\b/);
-      expect(text, file).not.toMatch(/info@collegeboy/i);
-    }
+  it('labels the original-site office and mobile contacts separately', () => {
+    expect(business.officePhone.value).toBe('833-310-5296');
+    expect(business.mobilePhone.value).toBe('267-248-8904');
+    expect(business.generalEmail.value).toBe('info@collegeboysteaks.com');
+    expect(business.mailingAddress.value).toBe('644 N Fuller Street, Los Angeles, CA 90036');
+    const footer = readFileSync('components/site-footer.tsx', 'utf8');
+    expect(footer).toContain('Office:');
+    expect(footer).toContain('Mobile:');
   });
 
-  it('exposes the five customer paths', () => {
-    expect(navLinks.map(link => link.label)).toEqual(['Find the truck', 'Menu', 'Order', 'Catering', 'Story']);
+  it('exposes the customer paths and careers', () => {
+    expect(navLinks.map(link => link.label)).toEqual(['Find the truck', 'Menu', 'Order', 'Catering', 'Story', 'Careers']);
   });
 });
 

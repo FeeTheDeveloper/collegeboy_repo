@@ -98,4 +98,23 @@ Kevin-related photographs and story material require explicit written family app
 
 ## Source-inspired menu previews
 
-`menu-cheesesteak.webp`, `menu-chicken.webp`, `menu-fries.webp` and `menu-takeaway.webp` in `public/media/` are generated editorial previews, not documentary menu photography. Beef, fries and takeaway derive from the supplied cheesesteak meal; chicken derives from `spicy-chicken-cheesesteak.png`. Originals are preserved. The menu includes an AI-preview disclosure. Full prompts and ordering caveats are recorded in `MENU_HANDOFF.md`.
+## Official menu photos — September 30, 2026
+
+The six menu images below were supplied by the user as official College Boy menu screenshots from `Dropbox/Fee The Developer/Decals/College Boy/`. Each website image is an AI-enhanced crop of its corresponding screenshot: the screenshot caption and floating site controls were removed, the food was reframed, and lighting was polished. The originals remain in Dropbox. These derivatives are for this local site reconstruction; the user identified the source as official but no deployment was requested.
+
+| Menu item | Source screenshot | Local website image |
+| --- | --- | --- |
+| Cheese Fries | `IMG_2573.jpg` | `public/media/menu-cheese-fries.webp` |
+| Hoagie | `IMG_2574.jpg` | `public/media/menu-hoagie.webp` |
+| Doctorate | `IMG_2575.jpg` | `public/media/menu-doctorate.webp` |
+| Master's | `IMG_2576.jpg` | `public/media/menu-masters.webp` |
+| Bachelor | `IMG_2577.jpg` | `public/media/menu-bachelor.webp` |
+| Alumni | `IMG_2578.jpg` | `public/media/menu-alumni.webp` |
+
+The earlier generated category previews listed below are historical and no longer appear in the menu.
+
+## Truck mascot icon — September 30, 2026
+
+`public/media/college-boy-truck-logo-v2.png` is the existing full truck mark and remains unchanged. The app and home-screen icons (`app/icon.png`, `app/apple-icon.png`, `public/icons/icon-192.png`, `icon-512.png`, and `icon-maskable-512.png`) are sized derivatives of a polished square edit of that mark. The full red truck, cream lettering and two-wheel profile are preserved. The user confirmed this is a visual identity request, with no audio.
+
+`menu-cheesesteak.webp`, `menu-chicken.webp`, `menu-fries.webp` and `menu-takeaway.webp` were earlier generated editorial previews, not documentary menu photography. They are absent from the current working tree. Full prompts and historical ordering caveats are recorded in `MENU_HANDOFF.md`.

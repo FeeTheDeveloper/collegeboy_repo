@@ -4,7 +4,8 @@ export const navLinks = [
   { href: '/#menu', label: 'Menu' },
   { href: '/#order', label: 'Order' },
   { href: '/#catering', label: 'Catering' },
-  { href: '/#story', label: 'Story' }
+  { href: '/#story', label: 'Story' },
+  { href: '/careers', label: 'Careers' }
 ] as const;
 
 /** Ordering happens on the verified provider listings in the Order section, not on this site. */

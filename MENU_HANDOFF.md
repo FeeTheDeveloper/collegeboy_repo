@@ -1,5 +1,7 @@
 # Menu imagery and delivery handoff
 
+> **September 30 update:** The current six-card menu now uses the user-supplied official photos and item descriptions. `IMG_2573.jpg` through `IMG_2578.jpg` correspond to Cheese Fries, Hoagie, Doctorate, Master's, Bachelor and Alumni. The website images are enhanced crops in `public/media/menu-*.webp`; originals remain in Dropbox. The earlier category-card and illustration notes below document prior drafts, not the current menu.
+
 > **September 27 update:** the seeded-roll and cup-lemonade cards were retired at Josette's direction. The current menu is described in `docs/JOSETTE_CHANGELOG.md`; the prompts below are historical.
 
 Four source-inspired AI menu previews are installed in `public/media/`: `menu-cheesesteak.webp`, `menu-chicken.webp`, `menu-fries.webp`, and `menu-takeaway.webp`. Each is 1000 × 1000 WebP (approximately 182–225 KiB). Originals and other existing artwork remain untouched.

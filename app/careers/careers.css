@@ -1,0 +1,40 @@
+.careers-page{background:var(--cream)}
+.careers-hero{min-height:540px;padding:clamp(3rem,7vw,7rem) max(1.2rem,6vw);background:linear-gradient(105deg,rgba(19,15,15,.96),rgba(19,15,15,.72)),url('/media/college-boy-truck-showtime.png') center/cover;color:var(--white);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.careers-hero .eyebrow{color:var(--butter)}
+.careers-hero h1{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(4rem,9vw,10rem);line-height:.92;margin:1.5rem 0}
+.careers-hero h1 em{font-style:normal;color:var(--butter)}
+.careers-hero>p{font-size:clamp(1rem,1.5vw,1.25rem);max-width:55ch;color:#eee0d6}
+.careers-roles,.careers-apply{padding:clamp(3rem,6vw,6rem) max(1.2rem,6vw)}
+.careers-heading{max-width:800px;margin-bottom:2.5rem}
+.careers-heading .eyebrow,.careers-apply .eyebrow{color:var(--red)}
+.careers-heading h2,.careers-apply h2{font-family:var(--display);font-size:clamp(3rem,5.5vw,6rem);font-weight:400;line-height:1;margin:.9rem 0 1rem}
+.careers-heading p,.careers-apply>div>p{max-width:62ch;font-size:1.05rem;line-height:1.65}
+.careers-role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.careers-role{background:var(--ink);color:var(--cream);padding:clamp(1.5rem,3vw,3rem);display:flex;flex-direction:column;align-items:flex-start}
+.careers-role-tag{font-family:var(--utility);font-weight:700;letter-spacing:.13em;color:#ff969e}
+.careers-role h3{font-family:var(--display);font-weight:400;font-size:clamp(2.5rem,4vw,4.5rem);line-height:1;margin:1.5rem 0 1rem}
+.careers-role>p{font-size:1.1rem;color:var(--butter)}
+.careers-role ul{padding-left:1.2rem;line-height:1.6;color:#e5d8d1}
+.careers-role li+li{margin-top:.6rem}
+.careers-role-apply{display:inline-flex;gap:1rem;justify-content:space-between;background:var(--red);color:#fff;padding:.8rem 1rem;font-family:var(--utility);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:auto}
+.career-boards{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;border-top:1px solid #5a4845;margin-top:2rem;padding-top:1rem;font-family:var(--utility);font-size:.85rem}
+.career-boards>span:first-child{color:#e8aaa9;text-transform:uppercase;letter-spacing:.08em}
+.career-boards>span:not(:first-child){color:#c6b9b2}
+.career-boards a{text-decoration:underline;text-underline-offset:3px}
+.careers-apply{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,6vw,6rem);background:#e9dfd0;border-top:2px solid var(--ink)}
+.careers-apply a{text-decoration:underline;text-underline-offset:3px;color:var(--red-dark)}
+.career-form{position:relative;background:var(--white);border:1px solid var(--line);padding:clamp(1.3rem,3vw,3rem);display:flex;flex-direction:column;gap:1.2rem;box-shadow:10px 10px 0 var(--red)}
+.career-form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.career-form label{display:flex;flex-direction:column;gap:.5rem;font-family:var(--utility);font-weight:700;font-size:1rem;letter-spacing:.02em}
+.career-form input:not([type=checkbox]),.career-form select,.career-form textarea{width:100%;min-height:48px;border:1px solid #776961;border-radius:0;background:#fff;color:var(--ink);padding:.8rem;font-family:var(--body);font-size:1rem;letter-spacing:0}
+.career-form input[type=file]{padding:.55rem;background:var(--cream)}
+.career-form textarea{resize:vertical}
+.career-form input:disabled,.career-form select:disabled,.career-form textarea:disabled{opacity:.6}
+.career-form-consent{flex-direction:row!important;align-items:flex-start;font-family:var(--body)!important;font-weight:400!important;line-height:1.45}
+.career-form-consent input{width:20px;height:20px;flex:none;margin:.1rem 0 0}
+.career-form-honey{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.career-form .button{align-self:flex-start}
+.career-form-status{margin:0;font-size:.9rem;color:var(--red-dark)}
+.career-form small{color:var(--muted);line-height:1.5}
+@media(max-width:850px){.careers-apply{grid-template-columns:1fr}.careers-role-grid{grid-template-columns:1fr}}
+@media(max-width:540px){.careers-hero{min-height:460px}.careers-hero h1{font-size:clamp(3.2rem,15vw,5rem)}.career-form-row{grid-template-columns:1fr}.career-form .button{width:100%}}

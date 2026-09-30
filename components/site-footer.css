@@ -1,0 +1,8 @@
+.site-footer{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,1fr)}
+.footer-contact{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;min-width:0}
+.site-footer .footer-contact strong{font-family:var(--utility);font-size:.8rem;line-height:1.3;letter-spacing:.15em;color:var(--butter)}
+.footer-contact address{font-style:normal;line-height:1.5;max-width:22ch}
+.footer-contact a{overflow-wrap:anywhere}
+.footer-contact a:hover{color:var(--butter)}
+@media(max-width:900px){.site-footer{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-contact{grid-column:1/-1}}
+@media(max-width:640px){.site-footer{grid-template-columns:1fr}.footer-contact{grid-column:auto}}

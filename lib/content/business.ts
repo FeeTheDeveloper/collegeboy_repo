@@ -1,7 +1,6 @@
 /**
- * Business details that appear on the site. A field is shown only when its
- * status is 'confirmed'. Never fill a value from an old listing, the truck
- * wrap, or a guess: the phone printed on the truck is no longer in service.
+ * Business details shown on the site. Contact details below came from the
+ * original College Boy site screenshots supplied by the user on 2026-09-30.
  */
 export type Field = { value: string | null; status: 'confirmed' | 'pending' };
 
@@ -10,9 +9,10 @@ export const business = {
   /** Supplied by King Fee as the CBK catering inbox; monitoring still unconfirmed. */
   cateringEmail: { value: 'catering@collegeboysteaks.com', status: 'confirmed' } as Field,
   cateringInboxMonitored: false,
-  generalEmail: { value: null, status: 'pending' } as Field,
-  phone: { value: null, status: 'pending' } as Field,
-  mailingAddress: { value: null, status: 'pending' } as Field,
+  generalEmail: { value: 'info@collegeboysteaks.com', status: 'confirmed' } as Field,
+  officePhone: { value: '833-310-5296', status: 'confirmed' } as Field,
+  mobilePhone: { value: '267-248-8904', status: 'confirmed' } as Field,
+  mailingAddress: { value: '644 N Fuller Street, Los Angeles, CA 90036', status: 'confirmed' } as Field,
   serviceArea: { value: 'Los Angeles', status: 'confirmed' } as Field,
 } as const;
 
@@ -36,8 +36,8 @@ export const brandLine = {
 };
 
 /**
- * Menu content. Prices and full ingredient lists are owner-confirmed fields;
- * until Josette supplies them the site says "see today's menu" instead.
+ * The supplied official screenshots now establish the six displayed menu
+ * descriptions. Prices remain unconfirmed.
  */
 export const menuPricesConfirmed = false;
 

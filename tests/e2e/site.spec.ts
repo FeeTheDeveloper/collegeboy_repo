@@ -74,12 +74,27 @@ test('ordering: no Square, unverified delivery links are not clickable', async (
   }
 });
 
-test('truck scene and story gate are reviewable', async ({ page }) => {
+test('catering illustration is removed and approved story is visible', async ({ page }) => {
   await page.goto('/#catering');
-  const scene = page.locator('.truck-scene');
-  await expect(scene.locator('img')).toHaveAttribute('alt', /woman .* leads .* Black man works the grill/);
-  await expect(scene.locator('figcaption')).toContainText('Illustration for review');
-  await expect(page.locator('[data-story-state="draft"]')).toContainText('pending family copy and approval');
+  await expect(page.locator('.catering-empty')).toBeAttached();
+  await expect(page.locator('.catering img')).toHaveCount(0);
+  await expect(page.locator('[data-story-state="draft"]')).toHaveCount(0);
+  await expect(page.locator('.about-inspiration-copy')).toContainText('Built on family and Philly roots');
+});
+
+test('mobile inspiration portrait loads in full above the story', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  const photo = page.locator('.about-inspiration-photo');
+  const portrait = photo.locator('img');
+  await photo.scrollIntoViewIfNeeded();
+  await expect.poll(() => portrait.evaluate(image => image.naturalWidth)).toBeGreaterThan(0);
+  await expect(portrait).toHaveCSS('object-fit', 'contain');
+  const photoBox = await photo.boundingBox();
+  const copyBox = await page.locator('.about-inspiration-copy').boundingBox();
+  expect(photoBox).not.toBeNull();
+  expect(copyBox).not.toBeNull();
+  expect(copyBox!.y).toBeGreaterThanOrEqual(photoBox!.y + photoBox!.height);
 });
 
 for (const width of [320, 390, 768, 1440]) {

@@ -6,27 +6,8 @@ import { orderOptions, isLive } from '@/lib/order-options';
 import { navLinks } from '@/lib/nav-links';
 import { business, story, storyApproved } from '@/lib/content/business';
 
-const scene = readFileSync('public/media/illustrations/truck-scene.svg', 'utf8');
-const shippedSource = execSync('git ls-files app components lib content public/media/illustrations', { encoding: 'utf8' }).trim().split('\n')
-  .filter(file => /\.(tsx?|json|css|svg)$/.test(file)).map(file => [file, readFileSync(file, 'utf8')] as const);
-
-describe('truck scene', () => {
-  it('shows exactly two people: an owner-lead woman and a worker', () => {
-    const people = [...scene.matchAll(/data-person="([^"]+)"/g)].map(match => match[1]);
-    expect(people.sort()).toEqual(['owner', 'worker']);
-    expect(scene).toContain('data-people="2"');
-    expect(scene).toMatch(/No one else is in the scene/);
-  });
-
-  it('is labelled as an illustration and stops animating for reduced motion', () => {
-    expect(scene).toMatch(/<title[^>]*>Illustration/);
-    expect(scene).toMatch(/prefers-reduced-motion: reduce\)\{\.steam\{animation:none/);
-  });
-
-  it('has no prices on its menu board', () => {
-    expect(scene).not.toMatch(/\$\s?\d/);
-  });
-});
+const shippedSource = execSync('git ls-files app components lib content', { encoding: 'utf8' }).trim().split('\n')
+  .filter(file => /\.(tsx?|json|css|svg)$/.test(file) && existsSync(file)).map(file => [file, readFileSync(file, 'utf8')] as const);
 
 describe('food accuracy (Josette)', () => {
   it('no longer ships or references the seeded-roll or cup-lemonade images', () => {
@@ -52,11 +33,6 @@ describe('food accuracy (Josette)', () => {
     for (const [file, text] of shippedSource) if (/\.(tsx|json)$/.test(file)) expect(text, file).not.toMatch(/\$\d+(\.\d{2})?/);
   });
 
-  it('graduation-cap illustration has a blue tassel and 2015', () => {
-    const cap = readFileSync('public/media/illustrations/graduation-cap-2015.svg', 'utf8');
-    expect(cap).toContain('data-tassel="blue"');
-    expect(cap).toContain('>2015<');
-  });
 });
 
 describe('ordering and contact details', () => {
@@ -88,8 +64,9 @@ describe('ordering and contact details', () => {
 });
 
 describe('story approval gate', () => {
-  it('stays draft-only until the family signs off', () => {
-    expect(story.familyApprovedAt).toBeNull();
-    expect(storyApproved()).toBe(false);
+  it('shows the approved story after the user confirmed approvals', () => {
+    expect(story.familyApprovedAt).toBe('2026-09-30');
+    expect(story.approvedParagraphs.length).toBeGreaterThan(0);
+    expect(storyApproved()).toBe(true);
   });
 });

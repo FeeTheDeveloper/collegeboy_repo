@@ -1,3 +1,29 @@
-.about{background:var(--ink);color:#fff;overflow:hidden}.about-inspiration{min-height:clamp(620px,75vw,900px);position:relative;display:flex;align-items:center}.about-inspiration:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,15,15,.96) 0%,rgba(19,15,15,.82) 31%,rgba(19,15,15,.16) 66%,rgba(19,15,15,.2) 100%)}.about-inspiration>img{object-fit:cover;object-position:center}.about-inspiration-copy{position:relative;z-index:2;width:min(700px,50%);padding:clamp(4rem,8vw,9rem) clamp(1.2rem,6vw,7rem)}.about-inspiration-copy .eyebrow{color:var(--butter)}.about-inspiration-copy h2{font-family:var(--display);font-size:clamp(3.7rem,7.4vw,8.5rem);font-weight:400;line-height:.91;margin:1.1rem 0 2rem}.about-inspiration-copy p{max-width:38rem;color:#d4c8c1;font-size:1.08rem}.about-family{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:clamp(2rem,6vw,7rem);padding:clamp(4rem,8vw,8rem) clamp(1.2rem,5vw,5rem)}.about-family-photo{position:relative;min-height:620px;box-shadow:14px 14px 0 var(--red);overflow:hidden}.about-family-photo img{object-fit:cover;object-position:center}.about-family-copy .eyebrow{color:#ff7b84}.about-family-copy h3{font-family:var(--display);font-size:clamp(3rem,5vw,6rem);font-weight:400;line-height:.93;margin:1rem 0 2rem}.about-family-copy p{color:#c7bbb5;font-size:1.04rem}.about-family-copy .text-link{display:inline-block;margin-top:1rem;color:var(--butter)}
-@media(max-width:980px){.about-inspiration{min-height:760px;align-items:flex-end}.about-inspiration:after{background:linear-gradient(0deg,rgba(19,15,15,.98) 0%,rgba(19,15,15,.76) 42%,rgba(19,15,15,.05) 78%)}.about-inspiration>img{object-position:64% center}.about-inspiration-copy{width:100%;padding-top:18rem}.about-family{grid-template-columns:1fr}.about-family-photo{min-height:580px}}
-@media(max-width:640px){.about-inspiration{min-height:700px}.about-inspiration-copy{padding-top:22rem}.about-inspiration-copy h2{font-size:clamp(3.2rem,14vw,5rem)}.about-family-photo{min-height:430px;box-shadow:8px 8px 0 var(--red)}}
+.about{background:var(--ink);color:#fff;overflow:hidden}
+.about-inspiration{min-height:clamp(620px,75vw,900px);position:relative;display:flex;align-items:center}
+.about-inspiration-photo{position:absolute;inset:0}
+.about-inspiration-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,15,15,.96) 0%,rgba(19,15,15,.82) 31%,rgba(19,15,15,.16) 66%,rgba(19,15,15,.2) 100%)}
+.about-inspiration-photo img{object-fit:cover;object-position:center}
+.about-inspiration-copy{position:relative;z-index:2;width:min(700px,50%);padding:clamp(4rem,8vw,9rem) clamp(1.2rem,6vw,7rem)}
+.about-inspiration-copy .eyebrow{color:var(--butter)}
+.about-inspiration-copy h2{font-family:var(--display);font-size:clamp(3.7rem,7.4vw,8.5rem);font-weight:400;line-height:.91;margin:1.1rem 0 2rem}
+.about-inspiration-copy p{max-width:38rem;color:#d4c8c1;font-size:1.08rem}
+.about-family{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:clamp(2rem,6vw,7rem);padding:clamp(4rem,8vw,8rem) clamp(1.2rem,5vw,5rem)}
+.about-family-photo{position:relative;min-height:620px;box-shadow:14px 14px 0 var(--red);overflow:hidden}
+.about-family-photo img{object-fit:cover;object-position:center}
+.about-family-copy .eyebrow{color:#ff7b84}
+.about-family-copy h3{font-family:var(--display);font-size:clamp(3rem,5vw,6rem);font-weight:400;line-height:.93;margin:1rem 0 2rem}
+.about-family-copy p{color:#c7bbb5;font-size:1.04rem}
+.about-family-copy .text-link{display:inline-block;margin-top:1rem;color:var(--butter)}
+@media(max-width:980px){
+  .about-inspiration{min-height:0;display:block}
+  .about-inspiration-photo{position:relative;aspect-ratio:1672/941}
+  .about-inspiration-photo:after{display:none}
+  .about-inspiration-photo img{object-fit:contain;object-position:center}
+  .about-inspiration-copy{width:100%;padding:clamp(2rem,6vw,4rem) clamp(1.2rem,6vw,4rem) clamp(4rem,8vw,6rem)}
+  .about-family{grid-template-columns:1fr}
+  .about-family-photo{min-height:580px}
+}
+@media(max-width:640px){
+  .about-inspiration-copy h2{font-size:clamp(3.2rem,14vw,5rem)}
+  .about-family-photo{min-height:430px;box-shadow:8px 8px 0 var(--red)}
+}

@@ -1,10 +1,12 @@
 # Josette's preview review: corrections log
 
-> **September 30 source update:** The user supplied six official item screenshots and original-site copy. The current menu now shows those six item photos and descriptions; the earlier mushroom, chicken and bottled-lemonade placeholder decisions below are historical review notes. The family-inspiration copy still awaits family approval.
+> **September 30 approval update:** The user confirmed all approvals for the requested home-page changes. The catering truck-and-servers illustration and its review caption were removed, leaving the dark desktop panel empty. The inspiration draft marker and placeholder copy were replaced with concise family-and-Philly-roots copy. On mobile, the existing portrait appears in full above the text.
+
+> **September 30 source update:** The user supplied six official item screenshots and original-site copy. The current menu now shows those six item photos and descriptions; the earlier mushroom, chicken and bottled-lemonade placeholder decisions below are historical review notes. The later approval update above supersedes the draft status for the family-inspiration section.
 
 Source: Josette (“Boss Lady”) review of the College Boy preview, relayed by King Fee. Branch `claude/college-boy-cheesesteaks-review-0g58yn`.
 
-“Approved” means Josette has seen the final result and said yes. Nothing here is approved yet; every row is **awaiting Josette's review**.
+The rows below record the original preview state. The approval update above records the later home-page decision.
 
 | # | Direction | Implementation | Where | Josette approved |
 | --- | --- | --- | --- | --- |

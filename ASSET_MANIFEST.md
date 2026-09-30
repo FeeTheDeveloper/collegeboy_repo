@@ -2,6 +2,8 @@
 
 > **Repository visibility:** this repository is **public**. Anything committed here is published. Do not commit an asset until its rights and subject consent are recorded below.
 
+> **September 30, 2026 approval update:** The user confirmed all approvals for the requested home-page changes. The existing inspiration portrait is retained and shown without the draft marker; its mobile presentation now shows the full image above the copy. The catering review illustration is removed from the page. No new asset was added.
+
 ## Rights register — September 27, 2026 (current site)
 
 | Asset | Placement | Source | Rights status | Subject approval |
@@ -11,9 +13,9 @@
 | `menu-chicken.webp` | Menu card 03 | AI-styled from `spicy-chicken-cheesesteak.png` (College Boy post, supplied via Dropbox) | Pending College Boy confirmation | No people |
 | `illustrations/mushroom-cheesesteak.svg` | Menu card 02 | Drawn for this build (Fee The Developer) | Fee The Developer original; replace with Josette's photo | No people |
 | `illustrations/fries-bottled-lemonade.svg` | Menu card 04 | Drawn for this build | Fee The Developer original; replace with Josette's photo | No people |
-| `illustrations/truck-scene.svg` | Catering | Drawn for this build | Fee The Developer original | Two stylized, unnamed figures; not likenesses. Review before public release |
-| `illustrations/graduation-cap-2015.svg` | Story | Drawn for this build at Josette's request | Fee The Developer original | Decorative; implies Kevin's 2015 graduation — family sign-off with the story |
-| `college-boy-inspiration-silhouette.png` | Story | AI-edited from the supplied headshot of Kevin | Supplied by King Fee for demo | **Family approval of the edited treatment pending** |
+| `illustrations/truck-scene.svg` | Unused; removed from Catering | Drawn for this build | Fee The Developer original | Two stylized, unnamed figures; not likenesses |
+| `illustrations/graduation-cap-2015.svg` | Unused; removed from Story | Drawn for this build at Josette's request | Fee The Developer original | Decorative; implied Kevin's 2015 graduation |
+| `college-boy-inspiration-silhouette.png` | Story | AI-edited from the supplied headshot of Kevin | Supplied by King Fee; user confirmed approvals September 30, 2026 | Approval confirmed by user September 30, 2026 |
 | `college-boy-family-owners-enhanced.png` | Story | AI-enhanced from supplied family photo | Supplied by King Fee for demo | **Each pictured person's consent pending** |
 | `college-boy-film-*.mp4`, `college-boy-film-poster.jpg` | Film | Supplied `College Boy Media.MP4` | Supplied for local build | **Family footage and third-party creator footage (poster shows “grubbingwithmagno”) need permission** |
 | `college-boy-truck-logo-v2.png` | Header, icons | Canva interpretation of the truck | Local build; trademark review not done | No people |

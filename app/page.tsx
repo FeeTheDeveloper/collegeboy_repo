@@ -9,8 +9,7 @@ import { ReviewMarquee } from '@/components/review-marquee';
 import { ShowtimeIntro } from '@/components/showtime-intro';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
-import { TruckScene } from '@/components/truck-scene';
-import { business, shown, story, storyApproved } from '@/lib/content/business';
+import { business, shown, story } from '@/lib/content/business';
 import { parseSchedule, renderClock } from '@/lib/schedule';
 import scheduleSource from '@/content/schedule.json';
 
@@ -20,7 +19,6 @@ export const revalidate = 300;
 export default function Home() {
   const { schedule } = parseSchedule(scheduleSource);
   const cateringEmail = shown(business.cateringEmail);
-  const approved = storyApproved();
 
   return <>
     <ShowtimeIntro />
@@ -42,16 +40,13 @@ export default function Home() {
         <p>Office lunches, celebrations, and community events. Email the date, location, and guest count and College Boy will follow up.</p>
         {cateringEmail ? <a className="button button-cream" href={`mailto:${cateringEmail}?subject=College%20Boy%20catering%20inquiry`}>Ask about catering ↗</a> : null}
         <small>Catering packages and pricing are quoted by College Boy directly.</small></div>
-        <div className="catering-truck"><TruckScene /></div></section>
+        <div className="catering-empty" aria-hidden="true" /></section>
       <section className="about" id="inspiration" aria-labelledby="about-title">
         <div className="about-inspiration">
-          <Image src="/media/college-boy-inspiration-silhouette.png" alt="A stylized graduation portrait representing the inspiration behind College Boy Cheesesteaks" fill sizes="100vw" />
+          <div className="about-inspiration-photo"><Image src="/media/college-boy-inspiration-silhouette.png" alt="Graduation portrait honoring the inspiration behind College Boy Cheesesteaks" fill sizes="100vw" loading="eager" /></div>
           <div className="about-inspiration-copy"><span className="eyebrow">THE INSPIRATION</span>
-            {approved ? null : <p className="draft-flag" data-story-state="draft">Draft · Story pending family copy and approval</p>}
             <h2 id="about-title">Every degree starts with someone who showed the way.</h2>
-            {approved ? story.approvedParagraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)
-              : <p>This is where the story behind College Boy will be told, in the family’s own words, once they have written and approved it.</p>}
-            <figure className="grad-cap"><Image src="/media/illustrations/graduation-cap-2015.svg" alt="Illustration of a graduation cap with a blue tassel and a 2015 charm" width={240} height={200} unoptimized /><figcaption>Illustration</figcaption></figure>
+            {story.approvedParagraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
           </div>
         </div>
         <div className="about-family">

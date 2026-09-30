@@ -88,7 +88,7 @@ test('mobile inspiration portrait loads in full above the story', async ({ page 
   const photo = page.locator('.about-inspiration-photo');
   const portrait = photo.locator('img');
   await photo.scrollIntoViewIfNeeded();
-  await expect.poll(() => portrait.evaluate(image => image.naturalWidth)).toBeGreaterThan(0);
+  await expect.poll(() => portrait.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   await expect(portrait).toHaveCSS('object-fit', 'contain');
   const photoBox = await photo.boundingBox();
   const copyBox = await page.locator('.about-inspiration-copy').boundingBox();

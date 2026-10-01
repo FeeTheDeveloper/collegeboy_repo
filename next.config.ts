@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: '/projects-2', destination: '/#menu', permanent: true },
-      { source: '/contact-8', destination: '/#catering', permanent: true }
+      { source: '/contact-8', destination: '/catering', permanent: true }
     ];
   },
   async headers() {

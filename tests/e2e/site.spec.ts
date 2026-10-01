@@ -16,9 +16,9 @@ async function links(page: Page) {
 }
 
 test('public routes respond and legacy routes redirect', async ({ request }) => {
-  for (const path of ['/', '/film', '/opening', '/subscribe']) expect((await request.get(path)).status(), path).toBe(200);
+  for (const path of ['/', '/film', '/opening', '/subscribe', '/careers', '/catering']) expect((await request.get(path)).status(), path).toBe(200);
   expect((await request.get('/projects-2', { maxRedirects: 0 })).headers().location).toBe('/#menu');
-  expect((await request.get('/contact-8', { maxRedirects: 0 })).headers().location).toBe('/#catering');
+  expect((await request.get('/contact-8', { maxRedirects: 0 })).headers().location).toBe('/catering');
 });
 
 test('dashboard and account stay unavailable without authentication configured', async ({ request }) => {
@@ -29,8 +29,8 @@ for (const path of ['/', '/film']) {
   test(`no broken or unapproved links on ${path}`, async ({ page, request }) => {
     await page.goto(path);
     for (const { href, abs } of await links(page)) {
-      if (href.startsWith('mailto:')) { expect(href).toMatch(/^mailto:catering@collegeboysteaks\.com(\?|$)/); continue; }
-      expect(href, 'no phone links').not.toMatch(/^tel:/);
+      if (href.startsWith('mailto:')) { expect(href).toMatch(/^mailto:(catering|info)@collegeboysteaks\.com(\?|$)/); continue; }
+      if (href.startsWith('tel:')) { expect(href).toMatch(/^tel:\d+$/); continue; }
       const url = new URL(abs);
       if (url.origin === 'http://localhost:3100') {
         expect((await request.get(url.pathname)).status(), href).toBeLessThan(400);
@@ -64,34 +64,30 @@ test('schedule shows "not confirmed" with no stale stop', async ({ page }) => {
   await expect(find).toContainText('No confirmed stop posted');
 });
 
-test('ordering: no Square, unverified delivery links are not clickable', async ({ page }) => {
+test('ordering stays at the truck while delivery listings are unverified', async ({ page }) => {
   await page.goto('/#order');
   await expect(page.locator('a[href*="square"]')).toHaveCount(0);
-  for (const provider of ['uber', 'doordash']) {
-    await page.locator(`#order-tab-${provider}`).click();
-    await expect(page.locator(`[data-order-pending="${provider}"]`)).toBeVisible();
-    await expect(page.locator(`[data-order-provider="${provider}"]`)).toHaveCount(0);
-  }
+  await expect(page.locator('#order')).toContainText('Delivery listings will appear here once College Boy verifies them.');
+  await expect(page.locator('#order a[href*="ubereats"], #order a[href*="doordash"]')).toHaveCount(0);
 });
 
-test('catering illustration is removed and approved story is visible', async ({ page }) => {
+test('home catering path and approved story are visible', async ({ page }) => {
   await page.goto('/#catering');
-  await expect(page.locator('.catering-empty')).toBeAttached();
-  await expect(page.locator('.catering img')).toHaveCount(0);
+  await expect(page.locator('#catering a[href="/catering"]')).toBeVisible();
   await expect(page.locator('[data-story-state="draft"]')).toHaveCount(0);
-  await expect(page.locator('.about-inspiration-copy')).toContainText('Built on family and Philly roots');
+  await expect(page.locator('.cb-story')).toContainText('Built on family and Philly roots');
 });
 
-test('mobile inspiration portrait loads in full above the story', async ({ page }) => {
+test('mobile story image loads above the copy', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
-  const photo = page.locator('.about-inspiration-photo');
+  const photo = page.locator('.cb-story-image');
   const portrait = photo.locator('img');
   await photo.scrollIntoViewIfNeeded();
   await expect.poll(() => portrait.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   await expect(portrait).toHaveCSS('object-fit', 'contain');
   const photoBox = await photo.boundingBox();
-  const copyBox = await page.locator('.about-inspiration-copy').boundingBox();
+  const copyBox = await page.locator('.cb-story>div:last-child').boundingBox();
   expect(photoBox).not.toBeNull();
   expect(copyBox).not.toBeNull();
   expect(copyBox!.y).toBeGreaterThanOrEqual(photoBox!.y + photoBox!.height);
@@ -131,4 +127,23 @@ test('home page has no serious or critical accessibility violations', async ({ p
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
   const serious = results.violations.filter(v => v.impact === 'serious' || v.impact === 'critical');
   expect(serious.map(v => `${v.id}: ${v.nodes.slice(0, 3).map(n => n.target.join(' ')).join(', ')}`)).toEqual([]);
+});
+
+for (const path of ['/film', '/opening', '/careers', '/subscribe']) {
+  test(`${path} stays readable on mobile`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(path);
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
+    const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+    expect(results.violations.filter(v => ['serious', 'critical'].includes(v.impact ?? '')).map(v => v.id)).toEqual([]);
+  });
+}
+
+test('College Boy video sources are served from this project', async ({ request }) => {
+  for (const path of ['/media/college-boy-opening.mp4', '/media/college-boy-film-enhanced.mp4']) {
+    const response = await request.head(path);
+    expect(response.status(), path).toBe(200);
+    expect(response.headers()['content-type'], path).toMatch(/^video\/mp4/);
+  }
 });

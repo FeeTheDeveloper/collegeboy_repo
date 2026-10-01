@@ -80,14 +80,14 @@ If Clerk variables are absent, public pages remain available and protected accou
 ### Preview acceptance checklist
 
 - [ ] Preview deployment is from the reviewed commit and intended Vercel project.
-- [ ] `/`, `/film`, `/opening`, `/subscribe`, `/account`, `/sign-in`, and `/sign-up` respond as expected.
-- [ ] `/projects-2` redirects to `/#menu`; `/contact-8` redirects to `/#catering`.
+- [ ] `/`, `/catering`, `/careers`, `/film`, `/opening`, `/subscribe`, `/account`, `/sign-in`, and `/sign-up` respond as expected.
+- [ ] `/projects-2` redirects to `/#menu`; `/contact-8` redirects to `/catering`.
 - [ ] Generated menu imagery and all existing media return successfully; no missing placeholder `.webp` references remain.
 - [ ] Uber Eats and DoorDash are marked verified in `lib/order-options.ts` only after Josette confirms them live; Instagram and catering links point to the approved destinations. No Square pickup link.
 - [ ] No secrets appear in build logs, repository files, or client bundles.
 - [ ] Preview remains `noindex`; no production DNS or domain cutover occurs during preview review.
 - [ ] Installed on one iPhone and one Android handset: home-screen icon and name are the College Boy mark, not a screenshot.
-- [ ] Opening film and brand film play on cellular on both handsets; a blocked or slow start shows the matching message rather than a load failure.
+- [ ] Opening animation and brand film play from their visible controls on cellular on both handsets; verify captions and poster fallbacks.
 - [ ] Menu sheet opens, navigates, and closes on a phone; no section is reachable only by scrolling.
 - [ ] A pasted link shows the share card in a message app.
 - [ ] Rollback deployment/commit and owner are recorded before production approval.
@@ -111,7 +111,7 @@ You retain control of the external setup:
 5. Configure the dedicated College Boy Supabase project and apply the tracked migration.
 6. Keep preview and demo pages `noindex`; production search indexing remains a separate approval.
 
-Legacy route redirects are implemented as `/projects-2` → `/#menu` and `/contact-8` → `/#catering`. Authentication routes are `/sign-in`, `/sign-up`, and `/account`; the mailing-list route is `/subscribe` with its server endpoint at `/api/subscribe`.
+Legacy route redirects are implemented as `/projects-2` → `/#menu` and `/contact-8` → `/catering`. Authentication routes are `/sign-in`, `/sign-up`, and `/account`; the mailing-list route is `/subscribe` with its server endpoint at `/api/subscribe`.
 
 ## Schedule ownership
 
@@ -122,11 +122,11 @@ The site shows a stop only when it is `confirmed`, has an `approvedBy`, has not 
 ## Review controls
 
 - `noindex,nofollow` stays enabled until an owner-approved production cutover.
-- The ZIP, `.openai/hosting.json`, private preview identity, family images, and unreviewed video originals are excluded.
+- The ZIP, `.openai/hosting.json`, and private preview identity are excluded. The approved family image is used on the homepage; film footage still needs the production rights review recorded in `ASSET_MANIFEST.md`.
 - Current item availability and prices remain with the ordering providers.
-- Catering is a visible email action; the inbox must be confirmed as monitored before launch.
-- Kevin's story, `#CBKForever`, family names, and family photographs are not included without documented family approval.
-- Google and Yelp cards are labeled placeholders; no rating or quote is fabricated.
+- Catering has a direct page and an online inquiry form that remains disabled until the College Boy inbox, sender, and Resend setup are verified. Email remains visible as an alternative; see `docs/CATERING_HANDOFF.md`.
+- Unapproved family names, memorial details, and personal claims are not added.
+- No rating or review quote is fabricated.
 - The mailing-list form stays disabled until a dedicated College Boy Supabase project is configured.
 - Clerk routes return 404 until a dedicated Clerk application is configured.
 - No production host, DNS, Wix site, analytics, or third-party listing has been changed.

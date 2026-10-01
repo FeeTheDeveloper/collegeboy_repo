@@ -1,23 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { FilmPlayer } from '@/components/brand-film';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 
 export const metadata: Metadata = { title: 'Inside College Boy', alternates: { canonical: '/film' } };
 
 export default function FilmPage() {
-  return <><a className="skip-link" href="#main">Skip to content</a><SiteHeader />
-    <main id="main" className="film-route"><div className="film-route-grid">
-      <div className="film-route-copy"><Link className="text-link" href="/">← Back to the truck</Link>
-        <h1>A little Philly.<br /><em>A lot of heart.</em></h1>
-        <p>The people, the preparation, the first bite. Go inside College Boy in this 96-second film, told by the people who make it and the people who try it.</p>
-        <div className="film-actions"><Link className="button button-red" href="/#order">Order</Link><Link className="text-link" href="/#catering">Plan an event</Link></div>
-        <div className="film-route-chapters">
-          <article><span>01 · THE PEOPLE</span><h2>Hear the story.</h2><p>Family roots, shared in their own words.</p></article>
-          <article><span>02 · THE COUNTER</span><h2>See it come together.</h2><p>A look inside the truck, from the grill to the finished order.</p></article>
-          <article><span>03 · THE FIRST BITE</span><h2>Let the food talk.</h2><p>Cheesesteaks, loaded fries, and a customer’s first impressions.</p></article>
-        </div>
-      </div><FilmPlayer />
-    </div></main><SiteFooter /></>;
+  return <><a className="skip-link" href="#main">Skip to content</a><SiteHeader /><main id="main" className="cb-inner">
+    <section className="cb-inner-hero"><span className="eyebrow">THE COLLEGE BOY FILM</span><h1>See the people behind the truck.</h1><p>Watch the College Boy film with its original voices and captions.</p><div className="cb-inner-actions"><Link className="button button-red" href="/catering">Request catering</Link><Link className="button button-outline" href="/#menu">See the menu</Link></div></section>
+    <section className="cb-inner-body"><div className="cb-inner-video"><video controls playsInline preload="metadata" poster="/media/college-boy-film-poster.jpg" width="720" height="1064" aria-label="College Boy brand film"><source src="/media/college-boy-film-enhanced.mp4" type="video/mp4" />Your browser does not support video. <a href="/media/college-boy-film-enhanced.mp4">Open the film</a>.</video><p>College Boy film. Playback starts when you choose play.</p></div></section>
+  </main><SiteFooter /></>;
 }

@@ -3,7 +3,7 @@ export const navLinks = [
   { href: '/#find', label: 'Find the truck' },
   { href: '/#menu', label: 'Menu' },
   { href: '/#order', label: 'Order' },
-  { href: '/#catering', label: 'Catering' },
+  { href: '/catering', label: 'Catering' },
   { href: '/#story', label: 'Story' },
   { href: '/careers', label: 'Careers' }
 ] as const;

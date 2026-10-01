@@ -52,7 +52,7 @@ describe('ordering and contact details', () => {
     expect(business.officePhone.value).toBe('833-310-5296');
     expect(business.mobilePhone.value).toBe('267-248-8904');
     expect(business.generalEmail.value).toBe('info@collegeboysteaks.com');
-    expect(business.mailingAddress.value).toBe('644 N Fuller Street, Los Angeles, CA 90036');
+    expect(business.serviceArea.value).toBe('Los Angeles, California');
     const footer = readFileSync('components/site-footer.tsx', 'utf8');
     expect(footer).toContain('Office:');
     expect(footer).toContain('Mobile:');

@@ -12,8 +12,7 @@ export const business = {
   generalEmail: { value: 'info@collegeboysteaks.com', status: 'confirmed' } as Field,
   officePhone: { value: '833-310-5296', status: 'confirmed' } as Field,
   mobilePhone: { value: '267-248-8904', status: 'confirmed' } as Field,
-  mailingAddress: { value: '644 N Fuller Street, Los Angeles, CA 90036', status: 'confirmed' } as Field,
-  serviceArea: { value: 'Los Angeles', status: 'confirmed' } as Field,
+  serviceArea: { value: 'Los Angeles, California', status: 'confirmed' } as Field,
 } as const;
 
 export function shown(field: Field) {

@@ -17,7 +17,7 @@ export default function Home() {
       <section className="cb-stage" aria-labelledby="home-title">
         <HomeHeroVideo />
         <div className="cb-stage-shade" aria-hidden="true" />
-        <div className="cb-stage-copy"><span className="eyebrow">COLLEGE BOY CHEESESTEAKS</span><h1 id="home-title">Real Philly cheesesteaks.<br />Wherever we roll.</h1><p>The red truck. The official menu. Your next event.</p><Link className="button button-red" href="/catering">Request catering</Link></div>
+        <div className="cb-stage-copy"><span className="eyebrow">COLLEGE BOY CHEESESTEAKS</span><h1 id="home-title">Real Philly cheesesteaks.<br />Wherever we roll.</h1><p>The red truck. The official menu. Your next event.</p><p className="cb-stage-tagline">COME GET ONE OF THESE JAWNS!</p><Link className="button button-red" href="/catering">Request catering</Link></div>
       </section>
       <section className="cb-feature-links" aria-label="Explore College Boy">
         {paths.map(path => <Link className="cb-feature-link" href={path.href} key={path.href}><Image src={path.image} alt={path.alt} fill sizes="(max-width: 700px) 100vw, 33vw" /><span className="cb-feature-shade" aria-hidden="true" /><strong>{path.label}</strong><span className="cb-feature-arrow" aria-hidden="true">↗</span></Link>)}

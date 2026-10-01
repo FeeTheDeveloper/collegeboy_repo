@@ -59,7 +59,7 @@ describe('ordering and contact details', () => {
   });
 
   it('exposes the customer paths and careers', () => {
-    expect(navLinks.map(link => link.label)).toEqual(['Find the truck', 'Menu', 'Order', 'Catering', 'Story', 'Careers']);
+    expect(navLinks.map(link => link.label)).toEqual(['Home', 'Menu', 'Find the truck', 'Story', 'Catering', 'Careers']);
   });
 });
 

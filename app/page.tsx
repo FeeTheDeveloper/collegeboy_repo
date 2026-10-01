@@ -5,7 +5,7 @@ import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 
 const paths = [
-  { href: '/catering', label: 'Catering', image: '/media/college-boy-opening-poster.jpg', alt: 'The red College Boy truck arriving' },
+  { href: '/catering', label: 'Catering', image: '/media/client-truck-arrival-poster.jpg', alt: 'The real red College Boy truck' },
   { href: '/menu', label: 'Menu', image: '/media/menu-masters.webp', alt: "College Boy Master's cheesesteak" },
   { href: '/story', label: 'Our story', image: '/media/college-boy-family-owners-enhanced.png', alt: 'College Boy family owners with the red truck' },
 ] as const;

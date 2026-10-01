@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic';
 
 const images = [
-  { src: '/media/college-boy-opening-poster.jpg', alt: 'College Boy red truck arriving' },
+  { src: '/media/client-truck-arrival-poster.jpg', alt: 'The real red College Boy truck' },
   { src: '/media/menu-masters.webp', alt: "College Boy Master's cheesesteak" },
   { src: '/media/college-boy-family-owners-enhanced.png', alt: 'College Boy family owners by the red truck' },
   { src: '/media/menu-cheese-fries.webp', alt: 'College Boy Cheese Fries' },

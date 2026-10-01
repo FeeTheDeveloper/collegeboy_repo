@@ -55,7 +55,7 @@ export function CateringInquiryForm({ available }: { available: boolean }) {
     </div>
     <div className="catering-honey" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
     <button className="button button-red" type="submit" disabled={!available || sending}>{sending ? 'Sending…' : 'Send catering request'}</button>
-    {!available && <p className="catering-connection" role="status">Online form not yet connected. Please use the catering email below.</p>}
+    {!available && <p className="catering-connection" role="status">Online form not yet connected. Please use the catering email above.</p>}
     {message && <p className={sent ? 'catering-success' : 'catering-error'} role={sent ? 'status' : 'alert'}>{message}</p>}
     <small>Required fields are marked *. Please do not include payment details.</small>
   </form>;

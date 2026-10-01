@@ -24,11 +24,11 @@ export function HomeHeroVideo() {
 
   return <>
     <video ref={video} className="cb-stage-video" muted loop playsInline preload="metadata"
-      poster="/media/college-boy-opening-poster.jpg" aria-hidden="true"
+      poster="/media/client-truck-arrival-poster.jpg" aria-hidden="true"
       onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)}>
-      <source src="/media/college-boy-opening.mp4" type="video/mp4" />
+      <source src="/media/client-truck-arrival.mp4" type="video/mp4" />
     </video>
-    <button className="cb-video-toggle" type="button" onClick={toggle} aria-label={playing ? 'Pause truck video' : 'Play truck video'}>
+    <button className="cb-video-toggle" type="button" onClick={toggle} aria-label={playing ? 'Pause College Boy footage' : 'Play College Boy footage'}>
       {playing ? 'Pause video' : 'Play video'}
     </button>
   </>;

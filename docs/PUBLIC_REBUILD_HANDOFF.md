@@ -1,9 +1,15 @@
 # College Boy public-page rebuild
 
-This local rebuild simplifies the public route layout: video and main actions first, then the official menu, truck location, approved story, and catering path. `/careers`, `/subscribe`, `/film`, `/opening`, and `/catering` remain direct routes with the same header and footer. Existing account, dashboard, and server endpoints were not repurposed.
+## Reference and College Boy mapping
 
-The homepage uses the local `college-boy-opening.mp4` animation with captions and the supplied `college-boy-film-enhanced.mp4` footage with user-controlled playback. The six menu images and their names/descriptions are from the supplied official menu assets. The truck and film media are documented in `ASSET_MANIFEST.md`. The film includes family and third-party footage, so production use still needs the documented rights review. The arrival video is an animated concept, not documentary footage.
+The Tropic Truck homepage and catering page were inspected in Chrome on October 1, 2026. The structural reference is a single header, full-height video hero, three large image links, a direct action band, signup area, photo strip, and footer. Its catering flow starts with a truck-image hero and jumps directly to a form, followed by a brief reasons section and another inquiry link. No Tropic Truck media, text, code, colors, or brand assets were imported.
 
-The Tropic Truck reference was requested for page layering and clarity only. The in-app Browser was unavailable during this implementation and the reference site did not load in the web reader, so no claim of exact visual matching is made. No reference-site assets, code, or copy were imported.
+College Boy now has direct `/`, `/menu`, `/find`, `/order`, `/story`, and `/catering` pages with shared header and footer. The homepage uses the local `college-boy-opening.mp4` as a muted video background with poster and reduced-motion fallback. The red truck poster, official menu images, and existing family portrait fill the image spaces. The existing `/opening`, `/film`, `/careers`, and `/subscribe` routes remain available. Legacy `/projects-2` and `/contact-8` links redirect to `/menu` and `/catering`.
 
-The catering form setup is in `docs/CATERING_HANDOFF.md`. Careers and mailing-list forms retain their existing configuration gates. This change is local only; the user said they will delete and reconstruct the Vercel project, so no deployment or provider mutation was performed.
+The arrival video is an eight-second generated College Boy concept, not documentary footage. The `/film` page contains separate supplied footage with family and third-party material; production rights review is still recorded in `ASSET_MANIFEST.md`. An ElevenLabs replacement was not generated because the local arrival video fills the requested hero space. If a more realistic film is commissioned, confirm a shot list and rights for any reference image before replacing it.
+
+## Form and publishing gates
+
+The catering form is **not connected**. See `docs/CATERING_HANDOFF.md` for the exact recipient confirmation, sender, and server environment setup. The shared newsletter section also remains disabled until a dedicated College Boy Supabase project and unsubscribe flow are configured. No inquiry or subscriber data is sent to another client project.
+
+This is a local review build. No Vercel project, deployment, domain, or external provider was changed. Confirm inbox monitoring, media rights, and final client review before a production cutover.

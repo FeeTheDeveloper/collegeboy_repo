@@ -32,7 +32,7 @@ for (const path of ['/', '/menu', '/find', '/order', '/story', '/catering', '/fi
       if (href.startsWith('mailto:')) { expect(href).toMatch(/^mailto:(catering|info)@collegeboysteaks\.com(\?|$)/); continue; }
       if (href.startsWith('tel:')) { expect(href).toMatch(/^tel:\d+$/); continue; }
       const url = new URL(abs);
-      if (url.origin === 'http://localhost:3100') {
+      if (url.origin === new URL(page.url()).origin) {
         expect((await request.get(url.pathname)).status(), href).toBeLessThan(400);
         if (url.hash) {
           if (url.pathname === new URL(page.url()).pathname) await expect(page.locator(url.hash), href).toHaveCount(1);
@@ -107,7 +107,8 @@ test('mobile menu exposes the customer paths and careers', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Menu' }).click();
   const sheet = page.getByRole('dialog', { name: 'Site menu' });
-  for (const label of ['Home', 'Find the truck', 'Menu', 'Order', 'Catering', 'Story', 'Careers']) await expect(sheet.getByRole('navigation').getByRole('link', { name: label, exact: true })).toBeVisible();
+  for (const label of ['Home', 'Find the truck', 'Menu', 'Catering', 'Story', 'Careers']) await expect(sheet.getByRole('navigation').getByRole('link', { name: label, exact: true })).toBeVisible();
+  await expect(sheet.getByRole('link', { name: 'Order', exact: true })).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(sheet).toBeHidden();
 });
@@ -142,7 +143,7 @@ for (const path of ['/film', '/opening', '/careers', '/subscribe']) {
 }
 
 test('College Boy video sources are served from this project', async ({ request }) => {
-  for (const path of ['/media/college-boy-opening.mp4', '/media/college-boy-film-enhanced.mp4']) {
+  for (const path of ['/media/client-truck-arrival.mp4', '/media/college-boy-film-enhanced.mp4']) {
     const response = await request.head(path);
     expect(response.status(), path).toBe(200);
     expect(response.headers()['content-type'], path).toMatch(/^video\/mp4/);

@@ -8,11 +8,11 @@ test('direct catering path, inquiry jump, and disconnected state', async ({ page
   await expect(page).toHaveURL(/\/catering#inquiry$/);
   await expect(page.getByRole('heading', { name: 'Request catering.' })).toBeVisible();
   for (const name of ['Name', 'Phone', 'Email', 'Event location', 'Event date', 'Estimated guest count', 'Event start time', 'Event end time', 'Additional event details']) {
-    await expect(page.getByRole('form').getByLabel(new RegExp(`^${name}`))).toBeVisible();
+    await expect(page.getByRole('form', { name: 'Catering inquiry' }).getByLabel(new RegExp(`^${name}`))).toBeVisible();
   }
   await expect(page.getByRole('button', { name: 'Send catering request' })).toBeDisabled();
   await expect(page.getByText('Online form not yet connected.')).toBeVisible();
-  await expect(page.getByRole('link', { name: 'catering@collegeboysteaks.com' })).toHaveAttribute('href', /^mailto:catering@collegeboysteaks\.com/);
+  await expect(page.getByRole('link', { name: 'catering@collegeboysteaks.com', exact: true })).toHaveAttribute('href', /^mailto:catering@collegeboysteaks\.com/);
   const response = await request.post('/api/catering', { data: {} });
   expect(response.status()).toBe(503);
 });
@@ -23,7 +23,7 @@ for (const width of [390, 1440]) {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/catering');
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
-    await expect(page.locator('.catering-hero')).toHaveCSS('background-image', /college-boy-opening-poster\.jpg/);
+    await expect(page.locator('.catering-hero')).toHaveCSS('background-image', /client-truck-arrival-poster\.jpg/);
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
     expect(results.violations.filter(v => ['serious', 'critical'].includes(v.impact ?? '')).map(v => v.id)).toEqual([]);
   });

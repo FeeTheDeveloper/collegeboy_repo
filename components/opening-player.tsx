@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { TruckLogo } from './truck-logo';
 import './opening-player.css';
 
-export const openingSource = '/media/college-boy-opening.mp4';
+export const openingSource = '/media/client-truck-arrival.mp4';
 
 /**
  * Playback states are kept apart on purpose: a phone that refuses autoplay, a
@@ -29,7 +29,7 @@ export function OpeningPlayer({ automatic = false, onComplete, onSkip }: {
   const [muted, setMuted] = useState(true);
   const [slow, setSlow] = useState(false);
   const [time, setTime] = useState(0);
-  const [duration, setDuration] = useState(8);
+  const [duration, setDuration] = useState(9);
   const reveal = time >= 6 || status === 'ready' || status === 'ended' || status === 'error' || status === 'blocked';
 
   useEffect(() => {
@@ -103,24 +103,24 @@ export function OpeningPlayer({ automatic = false, onComplete, onSkip }: {
   const message = status === 'error' ? 'The film could not load. You can still enter the site.'
     : status === 'stalled' ? 'The connection stalled. Try again, or enter the site.'
       : status === 'blocked' ? 'Your phone is holding autoplay. Press play for the arrival.'
-        : status === 'loading' ? (slow ? 'Slow connection — still bringing the truck around…' : 'Bringing the truck around…')
-          : status === 'playing' ? (time < 2.5 ? '[Truck approaches; engine hum]' : time < 4.1 ? 'College Boy Cheesesteaks.' : time < 5.6 ? 'Real Philly cheesesteaks.' : 'From real Philadelphians.')
+        : status === 'loading' ? (slow ? 'Slow connection — still bringing College Boy around…' : 'Bringing College Boy around…')
+          : status === 'playing' ? (time < 2.5 ? 'The real College Boy truck.' : time < 5.6 ? 'Real Philly cheesesteaks.' : 'From real Philadelphians.')
             : status === 'paused' ? 'PAUSED — READY WHEN YOU ARE' : 'THE RED TRUCK. THE REAL THING.';
 
   return <section className="opening-cinema" data-reveal={reveal} data-status={status} aria-label="The red truck arrives">
     <video ref={video} className="opening-picture" src={openingSource}
       width={1280} height={720} playsInline muted={muted}
-      preload={automatic ? 'auto' : 'metadata'} poster="/media/college-boy-opening-poster.jpg"
-      aria-label="Animated red College Boy truck arriving on a palm-lined street and opening its service hatch"
+      preload={automatic ? 'auto' : 'metadata'} poster="/media/client-truck-arrival-poster.jpg"
+      aria-label="Client footage of the red College Boy truck driving past and heading down the street"
       onCanPlay={() => { if (automatic && !started.current) void play(); }}
       onPlaying={() => { advanced(); setSlow(false); setStatus('playing'); }}
       onProgress={advanced} onLoadedData={advanced}
       onWaiting={() => { advanced(); setStatus(current => current === 'playing' ? 'loading' : current); }}
       onPause={() => setStatus(current => current === 'playing' ? 'paused' : current)}
       onTimeUpdate={event => { advanced(); setTime(event.currentTarget.currentTime); }}
-      onLoadedMetadata={event => { advanced(); setDuration(event.currentTarget.duration || 8); }}
+      onLoadedMetadata={event => { advanced(); setDuration(event.currentTarget.duration || 9); }}
       onEnded={() => setStatus('ended')} onError={() => setStatus('error')}>
-      <track kind="captions" src="/media/college-boy-opening.vtt" srcLang="en" label="English" />
+      <track kind="captions" src="/media/client-truck-arrival.vtt" srcLang="en" label="English" />
     </video>
     <div className="opening-shade" aria-hidden="true" />
     <div className="opening-topline"><span>PHILLY BORN. LOS ANGELES FED.</span><span>COLLEGE BOY / THE ARRIVAL</span></div>

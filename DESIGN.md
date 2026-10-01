@@ -34,6 +34,10 @@ components:
 
 # College Boy Cheesesteaks design direction
 
+## Current public rebuild (October 2026)
+
+The current public experience uses a full-height College Boy truck video, three large image links to catering, menu, and story, wide red action bands, and direct inner routes. The catering page moves from a truck-image hero to the inquiry form. Desktop keeps the sections broad; mobile stacks the links and form fields into one reading column. The older four-stage menu path described below is historical context and is no longer the homepage structure.
+
 ## Overview
 
 This is a hybrid brand and lightweight customer-account experience. It should feel like standing beside the red truck with a printed order ticket in hand: bold, direct, useful, and unmistakably College Boy. The memorable signature is the four-stage “Earn Your Degree” menu path. The About section extends that idea with a dignified graduation portrait and a documentary family-truck photograph. Restraint wins everywhere else.

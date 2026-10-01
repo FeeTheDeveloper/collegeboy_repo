@@ -115,6 +115,12 @@ The six menu images below were supplied by the user as official College Boy menu
 
 The earlier generated category previews listed below are historical and no longer appear in the menu.
 
+## Client footage replacement — October 1, 2026
+
+The user supplied five files from `Dropbox/Fee The Developer/Decals/College Boy/` and requested replacing the animated truck video with client media. `IMG_9796.MOV` is the source for `public/media/client-truck-arrival.mp4` and `client-truck-arrival-poster.jpg`. The nine-second website cut keeps the original scene and audio, uses a blurred extension of the portrait frame for a landscape stage, and encodes H.264/AAC for browser playback. The original MOV remains in Dropbox. The cut appears in the home hero, opening page/dialog, catering imagery, and find-the-truck background. The old animated opening media was removed from the website.
+
+`College Boy Media.MP4` is already represented by the separately documented brand film. `promo_.mov` is a social-app screen recording with visible interface and time-specific post details; it was reviewed but not placed as full-screen site media. `IMG_0296.HEIC` and `IMG_8001.HEIC` were reviewed and did not provide a clear College Boy subject for current placeholders. Client supply authorizes this local edit; production rights, music/audio clearance, identifiable-person consent, and final publication approval should be recorded before deployment.
+
 ## Truck mascot icon — September 30, 2026
 
 `public/media/college-boy-truck-logo-v2.png` is the existing full truck mark and remains unchanged. The app and home-screen icons (`app/icon.png`, `app/apple-icon.png`, `public/icons/icon-192.png`, `icon-512.png`, and `icon-maskable-512.png`) are sized derivatives of a polished square edit of that mark. The full red truck, cream lettering and two-wheel profile are preserved. The user confirmed this is a visual identity request, with no audio.

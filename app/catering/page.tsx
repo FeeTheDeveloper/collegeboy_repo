@@ -15,26 +15,22 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-dynamic';
 
+const images = [
+  { src: '/media/college-boy-opening-poster.jpg', alt: 'College Boy red truck arriving' },
+  { src: '/media/menu-masters.webp', alt: "College Boy Master's cheesesteak" },
+  { src: '/media/college-boy-family-owners-enhanced.png', alt: 'College Boy family owners by the red truck' },
+  { src: '/media/menu-cheese-fries.webp', alt: 'College Boy Cheese Fries' },
+] as const;
+
 export default function CateringPage() {
   return <>
     <a className="skip-link" href="#main">Skip to content</a><SiteHeader />
     <main id="main" className="catering-page">
-      <section className="catering-hero" aria-labelledby="catering-title">
-        <div className="catering-hero-copy"><span className="eyebrow">COLLEGE BOY CATERING</span>
-          <h1 id="catering-title">Bring College Boy to Your Event.</h1>
-          <p>Planning an office lunch, celebration, or community event? Tell College Boy where, when, and how many guests you expect.</p>
-          <a className="button button-red" href="#inquiry">Request catering</a>
-        </div>
-        <div className="catering-hero-image"><Image src="/media/menu-masters.webp" alt="College Boy Master's cheesesteak from the official menu" fill priority sizes="(max-width: 800px) 100vw, 48vw" /></div>
-      </section>
-      <section className="catering-inquiry" id="inquiry" aria-labelledby="inquiry-title">
-        <div className="catering-inquiry-copy"><span className="eyebrow">TELL US ABOUT YOUR EVENT</span><h2 id="inquiry-title">Request catering.</h2>
-          <p>Share your event details and College Boy can review your request. Availability and pricing are confirmed directly with College Boy.</p>
-          {cateringEmail && <p className="catering-email">Prefer email? <a href={`mailto:${cateringEmail}?subject=College%20Boy%20catering%20inquiry`}>{cateringEmail}</a></p>}
-        </div>
-        <CateringInquiryForm available={cateringFormReady} />
-      </section>
-      <section className="catering-why" aria-labelledby="why-title"><div><span className="eyebrow">WHY COLLEGE BOY</span><h2 id="why-title">Real Philly roots. The red truck.</h2><p>College Boy serves real Philly cheesesteaks in Los Angeles from its red truck. See the menu and story, then tell us about your event.</p><div className="catering-why-links"><Link href="/#menu">Explore the menu</Link><Link href="/#story">Our story</Link></div></div><Image src="/media/college-boy-truck-logo-v2.png" alt="College Boy red truck illustration" width={640} height={323} sizes="(max-width: 800px) 85vw, 38vw" /></section>
+      <section className="catering-hero" aria-labelledby="catering-title"><div className="catering-hero-content"><span className="eyebrow">COLLEGE BOY CATERING</span><h1 id="catering-title">Bring College Boy to Your Event.</h1><p>Office lunches, celebrations, and community events start here. Tell us where, when, and how many guests you expect.</p><a className="button button-red" href="#inquiry">Request catering</a></div></section>
+      <section className="catering-inquiry" id="inquiry" aria-labelledby="inquiry-title"><div className="catering-inquiry-copy"><span className="eyebrow">TELL US ABOUT YOUR EVENT</span><h2 id="inquiry-title">Request catering.</h2><p>Share the basics below. College Boy confirms availability and pricing directly.</p>{cateringEmail && <p className="catering-email">Prefer email? <a href={`mailto:${cateringEmail}?subject=College%20Boy%20catering%20inquiry`}>{cateringEmail}</a></p>}</div><CateringInquiryForm available={cateringFormReady} /></section>
+      <section className="catering-why" aria-labelledby="why-title"><span className="eyebrow">WHY COLLEGE BOY</span><h2 id="why-title">College Boy, at a glance.</h2><div className="catering-why-grid"><article><span>01</span><h3>Philly roots.</h3><p>College Boy is built on family and Philly roots.</p></article><article><span>02</span><h3>The official menu.</h3><p>Explore the College Boy cheesesteaks and Cheese Fries before you ask about your event.</p><Link href="/menu">See the menu →</Link></article><article><span>03</span><h3>The red truck.</h3><p>College Boy serves Los Angeles from its red truck. Tell us about the event you have in mind.</p></article></div></section>
+      <section className="catering-photo-strip" aria-label="College Boy truck and food photos">{images.map(item => <div key={item.src}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 600px) 50vw, 25vw" /></div>)}</section>
+      <section className="cb-action-band" aria-labelledby="catering-action-title"><span className="eyebrow">READY TO ASK?</span><h2 id="catering-action-title">Tell us about your event.</h2><a className="button button-cream" href="#inquiry">Go to the inquiry form ↑</a></section>
     </main><SiteFooter />
   </>;
 }

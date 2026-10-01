@@ -21,9 +21,9 @@ export default function manifest(): MetadataRoute.Manifest {
       { src: '/icons/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
     ],
     shortcuts: [
-      { name: 'Find the truck', url: '/#find' },
-      { name: 'Order', url: '/#order' },
-      { name: 'See the menu', url: '/#menu' },
+      { name: 'Find the truck', url: '/find' },
+      { name: 'Order', url: '/order' },
+      { name: 'See the menu', url: '/menu' },
       { name: 'Watch the film', url: '/film' }
     ]
   };

@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   images: { formats: ['image/avif', 'image/webp'] },
   async redirects() {
     return [
-      { source: '/projects-2', destination: '/#menu', permanent: true },
+      { source: '/projects-2', destination: '/menu', permanent: true },
       { source: '/contact-8', destination: '/catering', permanent: true }
     ];
   },

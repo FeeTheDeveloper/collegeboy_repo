@@ -1,28 +1,11 @@
-.catering-page{background:var(--cream)}
-.catering-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:560px;background:var(--ink);color:#fff}
-.catering-hero-copy{align-self:center;padding:clamp(3rem,7vw,7rem) clamp(1.25rem,6vw,7rem)}
-.catering-hero .eyebrow{color:#ffb3b8}
-.catering-hero h1,.catering-inquiry h2,.catering-why h2{font-family:var(--display);font-weight:400;line-height:.94;text-transform:uppercase}
-.catering-hero h1{font-size:clamp(3.4rem,7vw,7rem);margin:1rem 0 1.4rem;max-width:11ch}
-.catering-hero p{max-width:49ch;font-size:clamp(1rem,1.4vw,1.18rem);color:#efe2dc}
-.catering-hero .button{margin-top:1rem}
-.catering-hero-image{position:relative;min-height:420px;overflow:hidden}
-.catering-hero-image img{object-fit:cover;object-position:center}
-.catering-inquiry{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(2rem,5vw,5rem);padding:clamp(3.5rem,7vw,7rem) clamp(1.25rem,6vw,7rem);background:#e9dfd0}
-.catering-inquiry-copy{max-width:34rem}.catering-inquiry-copy .eyebrow,.catering-why .eyebrow{color:var(--red-dark)}
-.catering-inquiry h2,.catering-why h2{font-size:clamp(3.1rem,5vw,5.5rem);margin:1rem 0}
-.catering-email{margin-top:2rem}.catering-email a,.catering-why-links a{color:var(--red-dark);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
-.catering-form{position:relative;background:#fff;border:2px solid var(--ink);box-shadow:9px 9px 0 var(--red);padding:clamp(1.25rem,3vw,2.5rem);display:grid;gap:1.1rem}
-.catering-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem}
-.catering-fields label{display:block;font-family:var(--utility);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-.catering-fields label>span{display:inline;color:var(--red-dark)}
-.catering-fields input,.catering-fields textarea{display:block;width:100%;min-width:0;min-height:48px;margin-top:.35rem;padding:.75rem;border:1px solid #776961;border-radius:0;background:#fff;color:var(--ink);font-family:var(--body);font-size:1rem;letter-spacing:0;text-transform:none}
-.catering-fields textarea{resize:vertical}.catering-fields input[aria-invalid=true]{border:2px solid var(--red-dark)}
-.catering-fields small{color:var(--red-dark);font-family:var(--body);text-transform:none;letter-spacing:0}
-.catering-wide{grid-column:1/-1}.catering-honey{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.catering-form>.button{justify-self:start}.catering-form>small{color:var(--muted)}
-.catering-connection,.catering-error{margin:0;color:var(--red-dark);font-weight:600}.catering-success{margin:0;color:#176b35;font-weight:600}
-.catering-why{padding:clamp(3.5rem,7vw,7rem) clamp(1.25rem,6vw,7rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:2rem;align-items:center}
-.catering-why p{max-width:55ch}.catering-why img{width:100%;height:auto;object-fit:contain}.catering-why-links{display:flex;flex-wrap:wrap;gap:1.5rem;font-family:var(--utility);font-weight:700;text-transform:uppercase}
-@media(max-width:850px){.catering-hero,.catering-inquiry,.catering-why{grid-template-columns:1fr}.catering-hero-image{min-height:350px;order:-1}.catering-hero-copy{padding:2.5rem 1.25rem 3rem}.catering-hero h1{font-size:clamp(3.3rem,12vw,5.5rem)}.catering-why img{max-width:480px}}
-@media(max-width:560px){.catering-hero-image{min-height:260px}.catering-fields{grid-template-columns:1fr}.catering-form>.button{width:100%}.catering-form{box-shadow:6px 6px 0 var(--red)}}
+.catering-page{background:#fff}
+.catering-hero{min-height:clamp(440px,53vw,650px);display:grid;place-items:center;padding:clamp(4rem,8vw,8rem) 1.25rem;background:linear-gradient(0deg,rgba(19,15,15,.68),rgba(19,15,15,.55)),url('/media/college-boy-opening-poster.jpg') center/cover;color:#fff;text-align:center}
+.catering-hero-content{max-width:960px}.catering-hero .eyebrow{color:#fff}.catering-hero h1,.catering-inquiry h2,.catering-why h2{font-family:var(--display);font-weight:400;line-height:.96;text-transform:uppercase}
+.catering-hero h1{font-size:clamp(3.4rem,7vw,7rem);margin:1rem auto;max-width:14ch;text-wrap:balance}.catering-hero p{max-width:44rem;margin:0 auto 1.7rem;font-size:clamp(1.05rem,1.8vw,1.35rem)}
+.catering-inquiry{padding:clamp(3.5rem,6vw,6rem) clamp(1.25rem,5vw,5rem);max-width:1280px;margin:0 auto}.catering-inquiry-copy{text-align:center;margin:0 auto 2.5rem;max-width:54rem}.catering-inquiry-copy .eyebrow,.catering-why .eyebrow{color:var(--red-dark)}.catering-inquiry h2,.catering-why h2{font-size:clamp(3.1rem,5.5vw,5.8rem);margin:.8rem 0}.catering-inquiry-copy>p{font-size:1.08rem}.catering-email a{color:var(--red-dark);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+.catering-form{position:relative;background:#fff;display:grid;gap:1.2rem}.catering-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}.catering-fields label{display:block;font-family:var(--utility);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}.catering-fields label>span{display:inline;color:var(--red-dark)}.catering-fields label:nth-child(3),.catering-wide{grid-column:1/-1}
+.catering-fields input,.catering-fields textarea{display:block;width:100%;min-width:0;min-height:52px;margin-top:.35rem;padding:.8rem;border:1px solid #9f8d86;border-radius:0;background:#f3f0ed;color:var(--ink);font-family:var(--body);font-size:1rem;letter-spacing:0;text-transform:none}.catering-fields textarea{resize:vertical;min-height:160px}.catering-fields input[aria-invalid=true]{border:2px solid var(--red-dark)}.catering-fields small{color:var(--red-dark);font-family:var(--body);text-transform:none;letter-spacing:0}.catering-honey{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}.catering-form>.button{justify-self:center;min-width:min(100%,300px)}.catering-form>small,.catering-form>p{text-align:center}.catering-form>small{color:var(--muted)}.catering-connection,.catering-error{margin:0;color:var(--red-dark);font-weight:600}.catering-success{margin:0;color:#176b35;font-weight:600}
+.catering-why{padding:clamp(3.5rem,6vw,6rem) clamp(1.25rem,5vw,5rem);background:var(--cream);text-align:center}.catering-why-grid{max-width:1200px;margin:2.5rem auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;text-align:left}.catering-why-grid article{background:#fff;border:1px solid var(--ink);padding:clamp(1.5rem,3vw,2.5rem)}.catering-why-grid article>span{font-family:var(--display);font-size:2rem;color:var(--red-dark)}.catering-why-grid h3{font-family:var(--display);font-size:clamp(2rem,2.8vw,3rem);font-weight:400;text-transform:uppercase;margin:.8rem 0}.catering-why-grid p{margin:0}.catering-why-grid a{display:inline-block;color:var(--red-dark);font-family:var(--utility);font-weight:700;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px;margin-top:1rem}
+.catering-photo-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));overflow:hidden}.catering-photo-strip>div{position:relative;aspect-ratio:1}.catering-photo-strip img{object-fit:cover}
+@media(max-width:800px){.catering-why-grid{grid-template-columns:1fr}.catering-hero{min-height:460px}}
+@media(max-width:560px){.catering-hero h1{font-size:clamp(3rem,12vw,4.8rem)}.catering-fields{grid-template-columns:1fr}.catering-photo-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}

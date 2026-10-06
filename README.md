@@ -2,6 +2,8 @@
 
 Next.js review build for College Boy Cheesesteaks. It turns the original static handoff into a responsive marketing site with conditional Clerk authentication and a consent-based Supabase mailing-list route. Family history, review quotes, prices, and schedule data remain gated until verified.
 
+[Portfolio evidence and truth boundary](docs/PORTFOLIO_CASE_STUDY.md)
+
 ## Run locally
 
 Requires Node.js 20.9 or newer.
